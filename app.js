@@ -8,12 +8,12 @@ const server = require('http').Server(app)
 const socket = require('socket.io')(server)
 const cors = require('cors')
 
-const userRoute = require('./src/routes/user-route')
-const authRoute = require('./src/routes/auth-route')
-const chatRoute = require('./src/routes/chat-route')
+const mobileLocationRoute = require('./src/routes/mobile/location-routes')
+const webLocationRoute = require('./src/routes/web/location-routes')
+const arduinoLocationRoute = require('./src/routes/arduino/location-routes')
 
 /** Establish connection to MongoDB */
-require('./DAL/connection')
+require('./src/DAL/connection')
 
 app.set('port', (process.env.PORT || config.get('express.port')))
 app.options('*', cors())
@@ -30,13 +30,13 @@ app.use(function (req, res, next) {
 })
 
 /** Register APIs */
-userRoute(app)
-authRoute(app)
-chatRoute(app, socket)
+mobileLocationRoute(app, socket)
+webLocationRoute(app, socket)
+arduinoLocationRoute(app)
 
 /** catch 404 and forward to error handler */
 app.use((req, res, next) => {
-    var err = new Error('Not Found')    
+    var err = new Error('Not Found')
     next(err)
 })
 
@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
     res.status(err.status || 500)
     res.json({
-        "message": err.message,        
+        "message": err.message,
     })
 })
 

@@ -10,29 +10,17 @@
   "scripts": {
     "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joebui/Not-Alone-REST.git"
-  },
   "author": "joebui",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/joebui/Not-Alone-REST/issues"
-  },
-  "homepage": "https://github.com/joebui/Not-Alone-REST#readme",
   "dependencies": {
-    "bcrypt": "^1.0.2",
-    "body-parser": "^1.16.0",
+    "body-parser": "^1.16.1",
     "compression": "^1.6.2",
     "config": "^1.25.1",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.1",
     "express": "^4.14.1",
-    "express-form": "^0.12.6",
-    "jsonwebtoken": "^7.2.1",
-    "mongoose": "^4.8.1",
-    "morgan": "^1.7.0",
-    "promise": "^7.1.1",
-    "socket.io": "^1.7.2"
+    "mongoose": "^4.8.5",
+    "morgan": "^1.8.1",
+    "socket.io": "^1.7.3"
   }
 }

@@ -4,7 +4,7 @@ class BaseRepository {
      * @param  {Model<Document>} model
      */
     findAll(model) {
-        return model.find().exec()
+        return model.find().select('-_id -__v').exec()
     }
 
     /**
@@ -13,7 +13,7 @@ class BaseRepository {
      * @param  {object} condition
      */
     findOne(model, condition) {
-        return model.where(condition).findOne().exec()
+        return model.where(condition).findOne().select('-_id -__v').exec()
     }
 
     /**

@@ -5,9 +5,5 @@
     },
     "mongodb": {        
         "url": "mongodb://mongo:27017/not-alone"
-    },
-    "auth": {
-        "secret": "alannotalonewalker",
-        "salt-round": 5
-    }
+    }    
 }

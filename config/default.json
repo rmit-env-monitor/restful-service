@@ -4,10 +4,6 @@
         "origin": "http://localhost:8000"
     },
     "mongodb": {        
-        "url": "mongodb://localhost:27017/not-alone"
-    },
-    "auth": {
-        "secret": "alannotalonewalker",
-        "salt-round": 5
-    }
+        "url": "mongodb://localhost:27017/env-monitor"
+    }    
 }
