@@ -8,8 +8,8 @@ module.exports = (app) => {
      * URL: /api/web/locations
      * METHOD: POST
      * Params: {utcDateTime, latitute, longtitude, dust, no, so2, pm, o3, sound}
-     * Success: return {message: 'success'}
-     * Error: return {message: err}
+     * Success: return {message}
+     * Error: return {message}
      */
     router.post('/locations', (req, res) => {
         locationService.addNewLocationRecord(req.body)
