@@ -13,7 +13,7 @@ class LocationService {
                     reject({ message: err })
                 })
         })
-    }    
+    }
 }
 
 module.exports = new LocationService()

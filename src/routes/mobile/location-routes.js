@@ -18,7 +18,7 @@ module.exports = (app, socket) => {
             .catch((err) => {
                 res.status(400).json(err)
             })
-    })    
+    })
 
     app.use('/api/mobile', router)
 }

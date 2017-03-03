@@ -3,6 +3,14 @@ const router = require('express').Router()
 const authService = require('../services/auth-service')
 
 module.exports = (app) => {
+    /**
+     * Register new user
+     * URL: /users
+     * METHOD: POST
+     * Params: {username, password}
+     * Success: return {username, token}
+     * Error: return {message}
+     */
     router.post('/users', (req, res) => {
         authService.registerUser(req.body)
             .then((value) => {
@@ -13,6 +21,14 @@ module.exports = (app) => {
             })
     })
 
+    /**
+     * Login account
+     * URL: /auth
+     * METHOD: POST
+     * Params: {username, password}
+     * Success: return {username, token}
+     * Error: return {message}
+     */
     router.post('/auth', (req, res) => {
         authService.login(req.body)
             .then((value) => {
