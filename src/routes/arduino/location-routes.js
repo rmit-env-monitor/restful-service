@@ -21,5 +21,5 @@ module.exports = (app) => {
             })
     })
 
-    app.use('/api/arduino', router)
+    app.use('/arduino', router)
 }

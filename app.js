@@ -8,15 +8,18 @@ const server = require('http').Server(app)
 const socket = require('socket.io')(server)
 const cors = require('cors')
 
+const tokenCheck = require('./src/middlewares/token-check-middleware')
 const mobileLocationRoute = require('./src/routes/mobile/location-routes')
 const webLocationRoute = require('./src/routes/web/location-routes')
 const arduinoLocationRoute = require('./src/routes/arduino/location-routes')
+const authRoute = require('./src/routes/auth-route')
 
 /** Establish connection to MongoDB */
 require('./src/DAL/connection')
 
 app.set('port', (process.env.PORT || config.get('express.port')))
 app.options('*', cors())
+app.use('*/api', tokenCheck)
 app.use(compression())
 app.use(logger('dev'))
 app.use(bodyParser.json())
@@ -33,6 +36,7 @@ app.use(function (req, res, next) {
 mobileLocationRoute(app, socket)
 webLocationRoute(app, socket)
 arduinoLocationRoute(app)
+authRoute(app)
 
 /** catch 404 and forward to error handler */
 app.use((req, res, next) => {
