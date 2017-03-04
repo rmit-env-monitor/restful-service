@@ -5,7 +5,7 @@ const locationService = require('../../services/arduino/location-service')
 module.exports = (app) => {
     /**
      * Add new location records
-     * URL: /api/web/locations
+     * URL: /arduino/locations
      * METHOD: POST
      * Params: {utcDateTime, latitute, longtitude, dust, no, so2, pm, o3, sound}
      * Success: return {message}

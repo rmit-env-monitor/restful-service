@@ -2,6 +2,6 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema(
     { username: 'string', password: 'string' },
-    { collection: 'user' }
+    { collection: 'users' }
 )
-module.exports = mongoose.model('user', schema)
+module.exports = mongoose.model('users', schema)

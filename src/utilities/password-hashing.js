@@ -2,7 +2,7 @@ const Promise = global.Promise
 const bcrypt = require('bcrypt')
 
 module.exports = (plainPassword) => {
-    const saltRound = Math.random() * (101 - 1) + 1
+    const saltRound = randomIntInc(1, 11)
 
     return new Promise((resolve, reject) => {
         bcrypt.genSalt(saltRound, (err, salt) => {
@@ -12,4 +12,8 @@ module.exports = (plainPassword) => {
             })
         })
     })
+}
+
+function randomIntInc(low, high) {
+    return Math.floor(Math.random() * (high - low + 1) + low);
 }

@@ -3,6 +3,7 @@ const authRepo = require('../DAL/repositories/auth-repository')
 const passwordHashing = require('../utilities/password-hashing')
 const passwordChecking = require('../utilities/password-checking')
 const tokenGenerator = require('../utilities/token-generator')
+const constants = require('../utilities/constants')
 
 class AuthService {
     registerUser(body) {
@@ -38,14 +39,13 @@ class AuthService {
 
     login(body) {
         const value = {}
-        const ERROR_MESSAGE = 'Invalid username/password. Try again'
 
         return new Promise((resolve, reject) => {
             /** Check if username exists */
             authRepo.authenticate({ username: body.username.trim() }).then((user) => {
                 if (!user) {
                     /** Username not found */
-                    value.message = ERROR_MESSAGE
+                    value.message = constants.ERROR_MESSAGE
                     reject(value)
                 } else {
                     /** Check password */
@@ -56,7 +56,7 @@ class AuthService {
                                 value.token = tokenGenerator(value)
                                 resolve(value)
                             } else {
-                                value.message = ERROR_MESSAGE
+                                value.message = constants.ERROR_MESSAGE
                                 reject(value)
                             }
                         })
