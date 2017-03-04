@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "RESTful web service",
   "engines": {
-    "node": "6.9.5",
-    "npm": "4.1.2"
+    "node": "6.9.5"    
   },
   "main": "app.js",
   "scripts": {
