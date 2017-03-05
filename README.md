@@ -22,14 +22,25 @@ $ npm start
 
 Any API beginning with /api requires a token inserted into the Header, the format will be Authorization: Bearer [token].
 
-#### For Web
+### For Web
 
--   **GET /api/web/locations** - **success**: return [{_id utcDateTime, latitute, longtitude, dust, no, so2, pm, o3, sound}] , **error**: return {message}
+Get all location records
+-   **GET /api/web/locations** - **success**: return [{utcDateTime, latitute, longtitude, no, so2, pm, o3, sound}] , **error**: return {message}
 
-#### For Mobile
+### For Mobile
 
--   **GET /api/mobile/locations** - **success**: return [{_id utcDateTime, latitute, longtitude, dust, no, so2, pm, o3, sound}] , **error**: return {message}
+Get all location records
+-   **GET /api/mobile/locations** - **success**: return [{utcDateTime, latitute, longtitude, no, so2, pm, o3, sound}] , **error**: return {message}
 
-#### Arduino
+### Arduino
 
+Insert new location record
 -   **POST /arduino/locations** - **params**: {utcDateTime, latitute, longtitude, no, so2, pm, o3, sound} , **success/error**: return {message}
+
+### Shared
+
+Register account
+-   **POST /users** - **params**: {username, password} , **success**: return {username, token} , **error**: return {message}
+
+Login
+-   **POST /auth** - **params**: {username, password} , **success**: return {username, token} , **error**: return {message}
