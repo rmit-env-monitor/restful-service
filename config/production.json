@@ -1,7 +1,7 @@
 {
     "express": {
         "port": 3000,
-        "origin": "https://rmit-env-monitor.github.io"
+        "origin": "https://env-monitor-app.herokuapp.com"
     },
     "mongodb": {
         "url": "mongodb://admin:envmonitor@ds043981.mlab.com:43981/heroku_125vnfc6"
