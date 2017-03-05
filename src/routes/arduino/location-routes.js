@@ -7,7 +7,7 @@ module.exports = (app) => {
      * Add new location records
      * URL: /arduino/locations
      * METHOD: POST
-     * Params: {utcDateTime, latitute, longtitude, dust, no, so2, pm, o3, sound}
+     * Params: {utcDateTime, latitute, longtitude, no, so2, pm, o3, sound}
      * Success: return {message}
      * Error: return {message}
      */
