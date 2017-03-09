@@ -35,7 +35,7 @@ app.use(function (req, res, next) {
 /** Register APIs */
 mobileLocationRoute(app, socket)
 webLocationRoute(app, socket)
-arduinoLocationRoute(app)
+arduinoLocationRoute(app, socket)
 authRoute(app)
 
 /** catch 404 and forward to error handler */

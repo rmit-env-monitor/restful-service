@@ -7,7 +7,7 @@ module.exports = (app, socket) => {
      * Get all location records
      * URL: /api/web/locations
      * Method: GET
-     * Success: return [{_id utcDateTime, latitute, longtitude, no, so2, pm, o3, sound}]
+     * Success: return [{_id utcDateTime, latitute, longitude, no, so2, pm, o3, sound}]
      * Error: return {message}
      */
     router.get('/locations', (req, res) => {

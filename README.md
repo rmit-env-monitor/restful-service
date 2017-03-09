@@ -25,17 +25,17 @@ Any API beginning with /api requires a token inserted into the Header, the forma
 ### For Web
 
 Get all location records
--   **GET /api/web/locations** - **success**: return [{utcDateTime, latitute, longtitude, no, so2, pm, o3, sound}] , **error**: return {message}
+-   **GET /api/web/locations** - **success**: return [{utcDateTime, latitute, longitude, no, so2, pm, o3, sound}] , **error**: return {message}
 
 ### For Mobile
 
 Get all location records
--   **GET /api/mobile/locations** - **success**: return [{utcDateTime, latitute, longtitude, no, so2, pm, o3, sound}] , **error**: return {message}
+-   **GET /api/mobile/locations** - **success**: return [{utcDateTime, latitute, longitude, no, so2, pm, o3, sound}] , **error**: return {message}
 
 ### Arduino
 
 Insert new location record
--   **POST /arduino/locations** - **params**: {utcDateTime, latitute, longtitude, no, so2, pm, o3, sound} , **success/error**: return {message}
+-   **POST /arduino/locations** - **params**: {utcDateTime, latitute, longitude, no, so2, pm, o3, sound} , **success/error**: return {message}
 
 ### Shared
 
