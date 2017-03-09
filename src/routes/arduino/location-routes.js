@@ -13,8 +13,8 @@ module.exports = (app, socket) => {
      */
     router.post('/locations', (req, res) => {
         locationService.addNewLocationRecord(req.body)
-            .then((success) => {
-                socket.emit('sendAirMeasurement', req.body)
+            .then((success) => {                
+                socket.emit('sendAirData', req.body)
                 res.status(200).json(success)
             })
             .catch((err) => {
