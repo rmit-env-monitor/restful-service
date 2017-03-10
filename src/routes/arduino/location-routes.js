@@ -8,12 +8,12 @@ module.exports = (app, socket) => {
      * URL: /arduino/locations
      * METHOD: POST
      * Params: {utcDateTime, latitute, longitude, no, so2, pm, o3, sound}
-     * Success: return {message}
+     * Success: return {message} , socket {utcDateTime, latitute, longitude, no, so2, pm, o3, sound}
      * Error: return {message}
      */
     router.post('/locations', (req, res) => {
         locationService.addNewLocationRecord(req.body)
-            .then((success) => {                
+            .then((success) => {
                 socket.emit('sendAirData', req.body)
                 res.status(200).json(success)
             })

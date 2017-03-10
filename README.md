@@ -32,10 +32,11 @@ Get all location records
 Get all location records
 -   **GET /api/mobile/locations** - **success**: return [{utcDateTime, latitute, longitude, no, so2, pm, o3, sound}] , **error**: return {message}
 
-### Arduino
+### For Arduino
 
 Insert new location record
--   **POST /arduino/locations** - **params**: {utcDateTime, latitute, longitude, no, so2, pm, o3, sound} , **success/error**: return {message}
+-   **POST /arduino/locations** - **params**: {utcDateTime, latitute, longitude, no, so2, pm, o3, sound} , 
+**success/error**: return {message} ; socket {utcDateTime, latitute, longitude, no, so2, pm, o3, sound}
 
 ### Shared
 
