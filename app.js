@@ -9,8 +9,11 @@ const socket = require('socket.io')(server)
 const cors = require('cors')
 
 const tokenCheck = require('./src/middlewares/token-check-middleware')
+
+/** Routing */
 const mobileRecordRoute = require('./src/routes/mobile/record-route')
 const webRecordRoute = require('./src/routes/web/record-route')
+const webDeviceRoute = require('./src/routes/web/device-route')
 const arduinoRecordRoute = require('./src/routes/arduino/record-route')
 const authRoute = require('./src/routes/auth-route')
 
@@ -35,6 +38,7 @@ app.use(function (req, res, next) {
 /** Register APIs */
 mobileRecordRoute(app, socket)
 webRecordRoute(app, socket)
+webDeviceRoute(app)
 arduinoRecordRoute(app, socket)
 authRoute(app)
 
