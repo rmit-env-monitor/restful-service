@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const locationService = require('../../services/arduino/location-service')
+const recordService = require('../../services/arduino/record-service')
 
 module.exports = (app, socket) => {
     /**
@@ -12,7 +12,7 @@ module.exports = (app, socket) => {
      * Error: return {message}
      */
     router.post('/locations', (req, res) => {
-        locationService.addNewLocationRecord(req.body)
+        recordService.addNewLocationRecord(req.body)
             .then((success) => {
                 socket.emit('sendAirData', req.body)
                 res.status(200).json(success)

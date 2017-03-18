@@ -3,8 +3,8 @@ class BaseRepository {
      * Get all documents in a collection
      * @param  {Model<Document>} model
      */
-    findAll(model) {
-        return model.find().select('-_id -__v').exec()
+    findAll(model, select) {
+        return model.find().select(select).exec()
     }
 
     /**
@@ -12,8 +12,8 @@ class BaseRepository {
      * @param  {Model<Document>} model
      * @param  {object} condition
      */
-    findOne(model, condition) {
-        return model.where(condition).findOne().select('-_id -__v').exec()
+    findOne(model, condition, select) {
+        return model.where(condition).findOne().select(select).exec()
     }
 
     /**

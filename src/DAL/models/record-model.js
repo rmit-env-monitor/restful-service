@@ -2,8 +2,7 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema(
     {
-        utcDateTime: 'string', latitude: 'number', longitude: 'number',
-        no: 'number', so2: 'number', pm: 'number', o3: 'number', sound: 'number'
+        utcDateTime: 'string', no: 'number', so2: 'number', pm2: 'number', pm10: 'number', o3: 'number', co: 'number', sound: 'number'
     },
     { collection: 'locations' }
 )

@@ -9,9 +9,9 @@ const socket = require('socket.io')(server)
 const cors = require('cors')
 
 const tokenCheck = require('./src/middlewares/token-check-middleware')
-const mobileLocationRoute = require('./src/routes/mobile/location-routes')
-const webLocationRoute = require('./src/routes/web/location-routes')
-const arduinoLocationRoute = require('./src/routes/arduino/location-routes')
+const mobileRecordRoute = require('./src/routes/mobile/record-route')
+const webRecordRoute = require('./src/routes/web/record-route')
+const arduinoRecordRoute = require('./src/routes/arduino/record-route')
 const authRoute = require('./src/routes/auth-route')
 
 /** Establish connection to MongoDB */
@@ -33,9 +33,9 @@ app.use(function (req, res, next) {
 })
 
 /** Register APIs */
-mobileLocationRoute(app, socket)
-webLocationRoute(app, socket)
-arduinoLocationRoute(app, socket)
+mobileRecordRoute(app, socket)
+webRecordRoute(app, socket)
+arduinoRecordRoute(app, socket)
 authRoute(app)
 
 /** catch 404 and forward to error handler */

@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const locationService = require('../../services/mobile/location-service')
+const recordService = require('../../services/web/record-service')
 
 module.exports = (app, socket) => {
     /**
@@ -10,8 +10,8 @@ module.exports = (app, socket) => {
      * Success: return [{_id utcDateTime, latitute, longitude, no, so2, pm, o3, sound}]
      * Error: return {message}
      */
-    router.get('/locations', (req, res) => {
-        locationService.getAllLocations()
+    router.get('/records', (req, res) => {
+        recordService.getAllLocations()
             .then((locations) => {
                 res.status(200).json(locations)
             })
@@ -20,5 +20,5 @@ module.exports = (app, socket) => {
             })
     })
 
-    app.use('/api/mobile', router)
+    app.use('/api/web', router)
 }

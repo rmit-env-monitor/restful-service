@@ -1,11 +1,11 @@
 const Promise = global.Promise
 
-const locationRepo = require('../../DAL/repositories/location-repository')
+const recordRepo = require('../../DAL/repositories/record-repository')
 
-class LocationService {
+class RecordService {
     addNewLocationRecord(data) {
         return new Promise((resolve, reject) => {
-            locationRepo.addNewLocationRecord(data)
+            recordRepo.addNewLocationRecord(data)
                 .then(() => {
                     resolve({ message: 'success' })
                 })
@@ -16,4 +16,4 @@ class LocationService {
     }
 }
 
-module.exports = new LocationService()
+module.exports = new RecordService()

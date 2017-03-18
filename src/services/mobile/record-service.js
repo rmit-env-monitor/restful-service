@@ -1,11 +1,12 @@
 const Promise = global.Promise
 
-const locationRepo = require('../../DAL/repositories/location-repository')
+const recordRepo = require('../../DAL/repositories/record-repository')
+const constants = require('../../utilities/constants')
 
-class LocationService {
+class RecordService {
     getAllLocations() {
         return new Promise((resolve, reject) => {
-            locationRepo.getAllLocations()
+            recordRepo.getAllLocations(constants.NO_ID)
                 .then((locations) => {
                     resolve(locations)
                 })
@@ -16,4 +17,4 @@ class LocationService {
     }
 }
 
-module.exports = new LocationService()
+module.exports = new RecordService()
