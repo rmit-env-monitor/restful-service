@@ -2,20 +2,54 @@ const router = require('express').Router()
 
 const deviceService = require('../../services/web/device-service')
 
-module.exports = (app) => {
+module.exports = app => {
     /**
      * Get all devices
      * URL: /api/web/devices
      * Method: GET
-     * Success: return [{utcDateTime, latitute, longitude, no, so2, pm, o3, sound}]
+     * Success: return [{lat, lng, city, district}]
      * Error: return {message}
      */
     router.get('/devices', (req, res) => {
         deviceService.getAllDevices()
-            .then((devices) => {
+            .then(devices => {
                 res.status(200).json(devices)
             })
-            .catch((err) => {
+            .catch(err => {
+                res.status(400).json(err)
+            })
+    })
+
+    /**
+     * Get distinct list of available cities
+     * URL: /api/web/devices/cities
+     * Method: GET
+     * Success: return [city]
+     * Error: return {message}
+     */
+    router.get('/devices/cities', (req, res) => {
+        deviceService.getAvailableCities()
+            .then(cities => {
+                res.status(200).json(cities)
+            })
+            .catch(err => {
+                res.status(400).json(err)
+            })
+    })
+
+    /**
+     * Get distinct list of available districts of city
+     * URL: /api/web/devices/districts
+     * Method: GET
+     * Success: return [city]
+     * Error: return {message}
+     */
+    router.get('/devices/districts', (req, res) => {
+        deviceService.getAvailableDistrictsByCity(req.query.city)
+            .then(districts => {
+                res.status(200).json(districts)
+            })
+            .catch(err => {
                 res.status(400).json(err)
             })
     })

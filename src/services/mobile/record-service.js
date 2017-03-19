@@ -7,10 +7,10 @@ class RecordService {
     getAllLocations() {
         return new Promise((resolve, reject) => {
             recordRepo.getAllLocations(constants.NO_ID)
-                .then((locations) => {
+                .then(locations => {
                     resolve(locations)
                 })
-                .catch((err) => {
+                .catch(err => {
                     reject({ message: err })
                 })
         })

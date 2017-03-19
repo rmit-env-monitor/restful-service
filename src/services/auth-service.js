@@ -11,14 +11,14 @@ class AuthService {
 
         return new Promise((resolve, reject) => {
             /** Check if username exists */
-            authRepo.authenticate({ username: body.username.trim() }).then((isUserAvailable) => {
+            authRepo.authenticate({ username: body.username.trim() }).then(isUserAvailable => {
                 if (isUserAvailable) {
                     value.message = 'Username is already taken. Please try again!'
                     reject(value)
                 } else {
                     /** Hash password */
                     passwordHashing(body.password.trim())
-                        .then((res) => {
+                        .then(res => {
                             body.password = res
 
                             /** Add new user to DB */
@@ -28,7 +28,7 @@ class AuthService {
                                 resolve(value)
                             })
                         })
-                        .catch((err) => {
+                        .catch(err => {
                             value.message = err
                             reject(value)
                         })
@@ -42,7 +42,7 @@ class AuthService {
 
         return new Promise((resolve, reject) => {
             /** Check if username exists */
-            authRepo.authenticate({ username: body.username.trim() }).then((user) => {
+            authRepo.authenticate({ username: body.username.trim() }).then(user => {
                 if (!user) {
                     /** Username not found */
                     value.message = constants.ERROR_MESSAGE
@@ -50,7 +50,7 @@ class AuthService {
                 } else {
                     /** Check password */
                     passwordChecking(body.password, user.password)
-                        .then((res) => {
+                        .then(res => {
                             if (res) {
                                 value.username = user.username
                                 value.token = tokenGenerator(value)
@@ -60,7 +60,7 @@ class AuthService {
                                 reject(value)
                             }
                         })
-                        .catch((err) => {
+                        .catch(err => {
                             value.message = err
                             reject(value)
                         })

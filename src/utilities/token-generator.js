@@ -1,7 +1,7 @@
 var jwt = require('jsonwebtoken')
 var config = require('config')
 
-module.exports = (value) => {
+module.exports = value => {
     return jwt.sign(
         value,
         config.get('auth.secret'),

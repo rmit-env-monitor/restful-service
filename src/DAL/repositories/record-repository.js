@@ -2,8 +2,8 @@ const baseRepo = require('./base-repository')
 const recordModel = require('../models/record-model')
 
 class RecordRepository {
-    getAllLocations(select) {
-        return baseRepo.findAll(recordModel, select)
+    getRecordsByDevices(condition, select) {
+        return baseRepo.findMany(recordModel, condition, select)
     }
 
     addNewLocationRecord(data) {

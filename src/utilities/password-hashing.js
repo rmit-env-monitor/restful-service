@@ -1,7 +1,7 @@
 const Promise = global.Promise
 const bcrypt = require('bcrypt')
 
-module.exports = (plainPassword) => {
+module.exports = plainPassword => {
     const saltRound = randomIntInc(1, 11)
 
     return new Promise((resolve, reject) => {

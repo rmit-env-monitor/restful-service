@@ -2,18 +2,49 @@ class BaseRepository {
     /**
      * Get all documents in a collection
      * @param  {Model<Document>} model
+     * @param  {string} select
      */
     findAll(model, select) {
         return model.find().select(select).exec()
     }
 
     /**
+     * Get many documents with conditions
+     * @param  {Model<Document>} model
+     * @param  {object} condition
+     * @param  {string} select
+     */
+    findMany(model, condition, select) {
+        return model.where(condition).find().select(select).exec()
+    }
+
+    /**
      * Get a document with condition
      * @param  {Model<Document>} model
      * @param  {object} condition
+     * @param  {string} select
      */
     findOne(model, condition, select) {
         return model.where(condition).findOne().select(select).exec()
+    }
+
+    /**
+     * Get distinct list of a field
+     * @param {Model<Document>} model 
+     * @param {string} field 
+     */
+    findDistinct(model, field) {
+        return model.find().distinct(field).exec()
+    }
+
+    /**
+     * Get distinct list with condition
+     * @param {Model<Document>} model 
+     * @param {object} condition 
+     * @param {string} field 
+     */
+    findDistinctCondition(model, condition, field) {
+        return model.where().find().distinct(field).exec()
     }
 
     /**

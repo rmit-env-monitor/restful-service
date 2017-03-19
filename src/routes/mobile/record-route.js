@@ -5,17 +5,17 @@ const recordService = require('../../services/mobile/record-service')
 module.exports = (app, socket) => {
     /**
      * Get all location records
-     * URL: /api/web/locations
+     * URL: /api/mobile/records
      * Method: GET
-     * Success: return [{_id utcDateTime, latitute, longitude, no, so2, pm, o3, sound}]
+     * Success: return [{deviceID, utcDateTime, no, so2, pm2, pm10, o3, co, sound}]
      * Error: return {message}
      */
     router.get('/records', (req, res) => {
         recordService.getAllLocations()
-            .then((locations) => {
-                res.status(200).json(locations)
+            .then(records => {
+                res.status(200).json(records)
             })
-            .catch((err) => {
+            .catch(err => {
                 res.status(400).json(err)
             })
     })

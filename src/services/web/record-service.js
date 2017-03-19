@@ -4,13 +4,14 @@ const recordRepo = require('../../DAL/repositories/record-repository')
 const constants = require('../../utilities/constants')
 
 class RecordService {
-    getAllLocations() {
+    getRecordsByDevices(devices) {
+        var condition = { $or: devices }
         return new Promise((resolve, reject) => {
-            recordRepo.getAllLocations(constants.NO_ID)
-                .then((locations) => {
-                    resolve(locations)
+            recordRepo.getRecordsByDevices(condition, '-_id -__v')
+                .then(records => {
+                    resolve(records)
                 })
-                .catch((err) => {
+                .catch(err => {
                     reject({ message: err })
                 })
         })
