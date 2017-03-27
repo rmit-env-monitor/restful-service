@@ -13,21 +13,20 @@ module.exports = (app, socket) => {
      * Error: return {message}
      */
     router.get('/records', (req, res) => {
-        deviceService.getDevicesByCityDistrict(req.query.city, req.query.district).then(devices => {
-            const deviceList = []
-            for (let device of devices) {
-                deviceList.push({ deviceID: device._id.toString() })
-            }
-            
-            recordService.getRecordsByDevices(deviceList).then(records => {
-                res.status(200).json(records)
-            }).catch(err => {
-                res.status(400).json(err)
-            })
+        recordService.getRecordsByDevice(req.query.device).then(records => {
+            res.status(200).json(records)
         }).catch(err => {
             res.status(400).json(err)
         })
     })
+
+    router.get('/records/:device', (req, res) => {
+        recordService.getLatestDeviceRecord(req.params.device).then(records => {
+            res.status(200).json(records)
+        }).catch(err => {
+            res.status(400).json(err)
+        })
+    })    
 
     app.use('/api/web', router)
 }

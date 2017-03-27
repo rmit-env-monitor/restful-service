@@ -19,6 +19,18 @@ class BaseRepository {
     }
 
     /**
+     * Limit searching documents
+     * @param {Model<Document>} model 
+     * @param {object} condition 
+     * @param {string} sort 
+     * @param {number} limit 
+     * @param {string} select 
+     */
+    findManyLimit(model, condition, sort, limit, select) {
+        return model.where(condition).find().select(select).sort(sort).limit(limit).exec()
+    }
+
+    /**
      * Get a document with condition
      * @param  {Model<Document>} model
      * @param  {object} condition

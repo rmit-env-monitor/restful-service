@@ -10,7 +10,7 @@ class DeviceService {
             district: district
         }
         return new Promise((resolve, reject) => {
-            deviceRepo.getDevicesByCityDistrict(condition, '_id')
+            deviceRepo.getDevicesByCityDistrict(condition, '_id name')
                 .then(devices => {
                     resolve(devices)
                 })

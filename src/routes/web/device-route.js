@@ -7,11 +7,12 @@ module.exports = app => {
      * Get all devices
      * URL: /api/web/devices
      * Method: GET
-     * Success: return [{lat, lng, city, district}]
+     * Query: city, district
+     * Success: return [{_id name}]
      * Error: return {message}
      */
     router.get('/devices', (req, res) => {
-        deviceService.getAllDevices()
+        deviceService.getDevicesByCityDistrict(req.query.city, req.query.district)
             .then(devices => {
                 res.status(200).json(devices)
             })
@@ -41,7 +42,8 @@ module.exports = app => {
      * Get distinct list of available districts of city
      * URL: /api/web/devices/districts
      * Method: GET
-     * Success: return [city]
+     * Query: city
+     * Success: return [district]
      * Error: return {message}
      */
     router.get('/devices/districts', (req, res) => {
