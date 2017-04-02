@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "RESTful web service",
   "engines": {
-    "node": "6.9.5"    
+    "node": "6.9.5"
   },
   "main": "app.js",
   "scripts": {
@@ -22,6 +22,7 @@
     "jsonwebtoken": "^7.3.0",
     "mongoose": "^4.9.0",
     "morgan": "^1.8.1",
+    "mqtt": "^2.5.0",
     "socket.io": "^1.7.3"
   }
 }
