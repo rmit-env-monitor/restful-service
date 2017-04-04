@@ -8,5 +8,8 @@
     },
     "auth": {
         "secret": "kljv^*80932BN"        
+    },
+    "mqtt": {
+        "address": "mqtt://localhost:1883"
     }
 }

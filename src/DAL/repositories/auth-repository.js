@@ -7,7 +7,7 @@ class AuthRepository {
     }
 
     registerAccount(data) {
-        var newAccount = new userModel(data)
+        let newAccount = new userModel(data)
         return baseRepo.create(newAccount)
     }
 }

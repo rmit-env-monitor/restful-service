@@ -6,7 +6,7 @@ class RecordRepository {
         return baseRepo.findMany(recordModel, condition, select)
     }
 
-    addNewLocationRecord(data) {
+    addNewRecord(data) {
         let newLocationRecord = new recordModel(data)
         return baseRepo.create(newLocationRecord)
     }

@@ -14,7 +14,7 @@ const tokenCheck = require('./src/middlewares/token-check-middleware')
 const mobileRecordRoute = require('./src/routes/mobile/record-route')
 const webRecordRoute = require('./src/routes/web/record-route')
 const webDeviceRoute = require('./src/routes/web/device-route')
-const arduinoRecordRoute = require('./src/routes/arduino/record-route')
+const mqttSubcriber = require('./src/routes/arduino/mqtt-subcriber')
 const authRoute = require('./src/routes/auth-route')
 
 /** Establish connection to MongoDB */
@@ -39,7 +39,7 @@ app.use(function (req, res, next) {
 mobileRecordRoute(app, socket)
 webRecordRoute(app, socket)
 webDeviceRoute(app)
-arduinoRecordRoute(app, socket)
+mqttSubcriber()
 authRoute(app)
 
 /** catch 404 and forward to error handler */
