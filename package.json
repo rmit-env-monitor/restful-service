@@ -17,12 +17,12 @@
     "compression": "^1.6.2",
     "config": "^1.25.1",
     "cookie-parser": "^1.4.3",
-    "cors": "^2.8.1",
+    "cors": "^2.8.3",
     "express": "^4.15.2",
     "jsonwebtoken": "^7.3.0",
-    "mongoose": "^4.9.0",
+    "mongoose": "^4.9.3",
     "morgan": "^1.8.1",
-    "mqtt": "^2.5.0",
+    "mqtt": "^2.5.2",
     "socket.io": "^1.7.3"
   }
 }
