@@ -10,8 +10,9 @@ $ npm i
 ```
 -   Generate database, collections and sample documents
 ```
-$ mongoimport --db env-monitor --collection users --drop --file database-user.json
-$ mongoimport --db env-monitor --collection locations --drop --file database-location.json
+$ mongoimport --db env-monitor --collection users --drop --file db-samples/database-user.json
+$ mongoimport --db env-monitor --collection locations --drop --file db-samples/database-device.json
+$ mongoimport --db env-monitor --collection locations --drop --file db-samples/database-record.json
 ```
 -   Run the service
 ```
@@ -43,9 +44,8 @@ Get all location records
 
 ### For Arduino
 
-Insert new location record
--   **POST /arduino/records** - **params**: {deviceID, utcDateTime, no, so2, pm2, pm10, o3, co, sound} , 
-**success/error**: return {message} ; socket deviceID-{deviceID, utcDateTime, no, so2, pm2, pm10, o3, co, sound}
+Insert new record
+-   From the arduino side, must pass this string in the following format: "deviceID_utcDateTime_no_so2_pm2_pm10_o3_co_sound_uv"
 
 ### Shared
 
