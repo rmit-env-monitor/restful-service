@@ -39,7 +39,7 @@ app.use(function (req, res, next) {
 mobileRecordRoute(app, socket)
 webRecordRoute(app, socket)
 webDeviceRoute(app)
-mqttSubcriber()
+mqttSubcriber(socket)
 authRoute(app)
 
 /** catch 404 and forward to error handler */
