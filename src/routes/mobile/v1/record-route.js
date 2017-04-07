@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const recordService = require('../../services/mobile/record-service')
+const recordService = require('../../../services/mobile/v1/record-service')
 
 module.exports = (app, socket) => {
     /**
@@ -11,14 +11,8 @@ module.exports = (app, socket) => {
      * Error: return {message}
      */
     router.get('/records', (req, res) => {
-        recordService.getAllLocations()
-            .then(records => {
-                res.status(200).json(records)
-            })
-            .catch(err => {
-                res.status(400).json(err)
-            })
+        
     })
 
-    app.use('/api/mobile', router)
+    app.use('/api/mobile/v1', router)
 }

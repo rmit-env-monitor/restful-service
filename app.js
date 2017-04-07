@@ -11,11 +11,10 @@ const cors = require('cors')
 const tokenCheck = require('./src/middlewares/token-check-middleware')
 
 /** Routing */
-const mobileRecordRoute = require('./src/routes/mobile/record-route')
-const webRecordRoute = require('./src/routes/web/record-route')
-const webDeviceRoute = require('./src/routes/web/device-route')
 const mqttSubcriber = require('./src/routes/arduino/mqtt-subcriber')
-const authRoute = require('./src/routes/auth-route')
+const sharedRoutes = require('./src/routes/shared')
+const mobileRoutes = require('./src/routes/mobile')
+const webRoutes = require('./src/routes/web')
 
 /** Establish connection to MongoDB */
 require('./src/DAL/connection')
@@ -36,11 +35,10 @@ app.use(function (req, res, next) {
 })
 
 /** Register APIs */
-mobileRecordRoute(app, socket)
-webRecordRoute(app, socket)
-webDeviceRoute(app)
 mqttSubcriber(socket)
-authRoute(app)
+sharedRoutes(app)
+mobileRoutes(app, socket)
+webRoutes(app, socket)
 
 /** catch 404 and forward to error handler */
 app.use((req, res, next) => {
