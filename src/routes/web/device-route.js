@@ -4,7 +4,7 @@ const deviceService = require('../../services/web/device-service')
 
 module.exports = app => {
     /**
-     * Get all devices
+     * Get all devices by city and district
      * URL: /api/web/devices
      * Method: GET
      * Query: city, district
