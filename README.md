@@ -13,6 +13,7 @@ $ npm i
 $ mongoimport --db env-monitor --collection users --drop --file db-samples/database-user.json
 $ mongoimport --db env-monitor --collection locations --drop --file db-samples/database-device.json
 $ mongoimport --db env-monitor --collection locations --drop --file db-samples/database-record.json
+$ mongoimport --db env-monitor --collection nearby --drop --file db-samples/database-nearby.json
 ```
 -   Run the service
 ```
@@ -36,6 +37,9 @@ Get distinct list of available districts of city
 
 Get latest record of a device
 -   **GET /api/web/records/:device** - **success**: return [{deviceID, utcDateTime, no, so2, pm2, pm10, o3, co, sound}] , **error**: return {message}
+
+Get nearby districts of a current city and district
+-   **GET /api/web/nearby** - **query**: city, district - **success**: return nearby: [] , **error**: return {message}
 
 ### For Mobile
 
