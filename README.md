@@ -43,6 +43,21 @@ Get nearby districts of a current city and district
 
 ### For Mobile
 
+Get all devices by city and district
+-   **GET /api/mobile/v1/devices** - **query**: city district , - **success**: return [{_id name}] , **error**: return {message}
+
+Get distinct list of available cities
+-   **GET /api/mobile/v1/devices/cities** - **success**: return [city] , **error**: return {message}
+
+Get distinct list of available districts of city
+-   **GET /api/mobile/v1/devices/districts** - **query**: city , **success**: return [district] , **error**: return {message}
+
+Get latest record of a device
+-   **GET /api/mobile/v1/records/:device** - **success**: return [{deviceID, utcDateTime, no, so2, pm2, pm10, o3, co, sound}] , **error**: return {message}
+
+Get nearby districts of a current city and district
+-   **GET /api/mobile/v1/nearby** - **query**: city, district - **success**: return nearby: [] , **error**: return {message}
+
 ### For Arduino
 
 Insert new record

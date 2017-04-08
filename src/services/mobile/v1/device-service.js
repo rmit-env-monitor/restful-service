@@ -1,6 +1,6 @@
 const Promise = global.Promise
 
-const deviceRepo = require('../../DAL/repositories/device-repository')
+const deviceRepo = require('../../../DAL/repositories/device-repository')
 
 class DeviceService {
     getDevicesByCityDistrict(city, district) {
@@ -41,7 +41,7 @@ class DeviceService {
                     reject({ message: err })
                 })
         })
-    }    
+    }
 }
 
 module.exports = new DeviceService()
