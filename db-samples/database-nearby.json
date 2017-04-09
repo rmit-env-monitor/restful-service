@@ -21,3 +21,16 @@
         "Quận 2"
     ]
 }
+{
+    "city" : "Hồ Chí Minh",
+    "district" : "Tân Bình",
+    "nearby" : [ 
+        "Gò Vấp", 
+        "Tân Phú", 
+        "Quận 11", 
+        "Quận 10", 
+        "Quận 3", 
+        "Phú Nhuận", 
+        "Quận 12"
+    ]
+}
