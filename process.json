@@ -4,7 +4,7 @@
             "script": "app.js",
             "instances": 0,
             "exec_mode": "cluster",
-            "env_production": {
+            "env": {
                 "NODE_ENV": "production"
             },
             "error_file": "err.log",
