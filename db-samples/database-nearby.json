@@ -1,27 +1,30 @@
 {
-    "city": "Hồ Chí Minh",
-    "district": "Quận 7",
-    "nearby": [
-        "Quận 2",
-        "Quận 4",
-        "Quận 8",
+    "_id" : ObjectId("58e7c1ff18078d8e739c3a54"),
+    "city" : "Hồ Chí Minh",
+    "district" : "Quận 7",
+    "nearby" : [ 
+        "Quận 2", 
+        "Quận 4", 
+        "Quận 8", 
         "Nhà Bè"
     ]
 }
 {
-    "city": "Hồ Chí Minh",
-    "district": "1",
-    "nearby": [
-        "Bình Thạnh",
-        "Phú Nhuận",
-        "Quận 3",
-        "Quận 10",
-        "Quận 5",
-        "Quận 4",
+    "_id" : ObjectId("58e7c1ff18078d8e739c3a55"),
+    "city" : "Hồ Chí Minh",
+    "district" : "1",
+    "nearby" : [ 
+        "Bình Thạnh", 
+        "Phú Nhuận", 
+        "Quận 3", 
+        "Quận 10", 
+        "Quận 5", 
+        "Quận 4", 
         "Quận 2"
     ]
 }
 {
+    "_id" : ObjectId("58e9a5c147eecf04f16f01c9"),
     "city" : "Hồ Chí Minh",
     "district" : "Tân Bình",
     "nearby" : [ 

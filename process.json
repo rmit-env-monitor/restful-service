@@ -1,0 +1,15 @@
+{
+    "apps": [
+        {
+            "script": "app.js",
+            "instances": 0,
+            "exec_mode": "cluster",
+            "env_production": {
+                "NODE_ENV": "production"
+            },
+            "error_file": "err.log",
+            "out_file": "out.log",
+            "log_date_format": "YYYY-MM-DD HH:mm:ss"
+        }
+    ]
+}
