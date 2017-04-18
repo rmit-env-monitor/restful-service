@@ -61,7 +61,8 @@ Get nearby districts of a current city and district
 ### For Arduino
 
 Insert new record
--   From the arduino side, must pass this string in the following format: "deviceID_utcDateTime_no_so2_pm2_pm10_o3_co_sound_uv"
+-   From the arduino side (using MQTT), must pass this string in the following format: "deviceID_utcDateTime_no_so2_pm2_pm10_o3_co_sound_uv"
+-   From the arduino side (using HTTP): **POST /arduino/records** - **params**: {deviceID, utcDateTime, no, so2, pm2, pm10, o3, co, sound, uv} , **success**: return 'success'
 
 ### Shared
 

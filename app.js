@@ -9,14 +9,14 @@ const cors = require('cors')
 
 const tokenCheck = require('./src/middlewares/token-check-middleware')
 
+/** Establish connection to MongoDB */
+require('./src/DAL/connection')
+
 /** Routing */
-const mqttSubcriber = require('./src/routes/arduino/mqtt-subcriber')
+const arduino = require('./src/routes/arduino')
 const sharedRoutes = require('./src/routes/shared')
 const mobileRoutes = require('./src/routes/mobile')
 const webRoutes = require('./src/routes/web')
-
-/** Establish connection to MongoDB */
-require('./src/DAL/connection')
 
 app.set('port', (process.env.PORT || config.get('express.port')))
 app.options('*', cors())
@@ -33,7 +33,7 @@ app.use(function (req, res, next) {
 })
 
 /** Register APIs */
-mqttSubcriber(socket)
+arduino(app, socket)
 sharedRoutes(app)
 mobileRoutes(app, socket)
 webRoutes(app, socket)
@@ -41,14 +41,14 @@ webRoutes(app, socket)
 /** catch 404 and forward to error handler */
 app.use((req, res, next) => {
     var err = new Error('Not Found')
+    err.status = 404
     next(err)
 })
 
 /** production error handler, no stacktraces leaked to user */
 app.use((err, req, res, next) => {
-    res.status(err.status || 500)
-    res.json({
-        "message": err.message,
+    res.status(err.status || 500).json({
+        'message': err.message,
     })
 })
 
