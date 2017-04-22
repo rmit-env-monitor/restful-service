@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Install packages') {
       steps {
-        sh 'yarn'
+        sh 'npm install'
       }
     }
     stage('Restart service') {
