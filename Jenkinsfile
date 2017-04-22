@@ -3,12 +3,12 @@ pipeline {
   stages {
     stage('Install packages') {
       steps {
-        sh 'yarn install'
+        sh 'npm install'
       }
     }
     stage('Restart service') {
       steps {
-        sh 'pm2 restart restful-service'
+        sh 'pm2 start process.json'
       }
     }
   }
