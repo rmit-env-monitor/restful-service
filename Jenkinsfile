@@ -1,14 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Install packages') {
+    stage('Install packages and run server') {
       steps {
-        sh 'yarn'
-      }
-    }
-    stage('Run the server') {
-      steps {
-        sh 'pm2 start process.json'
+        sh './run.sh'
       }
     }
   }
