@@ -29,6 +29,9 @@ Any API beginning with /api requires a token inserted into the Header, the forma
 Get all devices by city and district
 -   **GET /api/web/devices** - **query**: city district , - **success**: return [{_id name}] , **error**: return {message}
 
+Get a device by city and district
+-   **GET /api/web/device** - **query**: city district , - **success**: return [{_id name}] , **error**: return {message}
+
 Get distinct list of available cities
 -   **GET /api/web/devices/cities** - **success**: return [city] , **error**: return {message}
 
