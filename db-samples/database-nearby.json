@@ -37,3 +37,14 @@
         "Quận 12"
     ]
 }
+{
+    "_id" : ObjectId("58fc207d8fd32d1d9b3599bf"),
+    "city" : "Hồ Chí Minh",
+    "district" : "Quận 10",
+    "nearby" : [ 
+        "Tân Bình", 
+        "Quận 3", 
+        "Quận 11", 
+        "Quận 5"
+    ]
+}

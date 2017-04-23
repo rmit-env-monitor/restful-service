@@ -56,5 +56,23 @@ module.exports = app => {
             })
     })
 
+    /**
+     * Get one device by city and district
+     * URL: /api/web/devices
+     * Method: GET
+     * Query: city, district
+     * Success: return [{_id name}]
+     * Error: return {message}
+     */
+    router.get('/device', (req, res) => {
+        deviceService.getOneDeviceByCityDistrict(req.query.city, req.query.district)
+            .then(devices => {
+                res.status(200).json(devices)
+            })
+            .catch(err => {
+                res.status(400).json(err)
+            })
+    })
+
     app.use('/api/web', router)
 }

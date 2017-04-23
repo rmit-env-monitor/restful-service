@@ -6,6 +6,10 @@ class DeviceRepository {
         return baseRepo.findMany(deviceModel, condition, select)
     }
 
+    getOneDeviceByCityDistrict(condition, select) {
+        return baseRepo.findOne(deviceModel, condition, select)
+    }
+
     getAvailableCities() {
         return baseRepo.findDistinct(deviceModel, 'city')
     }

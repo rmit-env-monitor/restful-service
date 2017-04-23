@@ -19,6 +19,22 @@ class DeviceService {
         })
     }
 
+    getOneDeviceByCityDistrict(city, district) {
+        const condition = {
+            city: city,
+            district: district
+        }
+        return new Promise((resolve, reject) => {
+            deviceRepo.getOneDeviceByCityDistrict(condition, '_id name')
+                .then(devices => {
+                    devices ? resolve([devices]) : resolve([])
+                })
+                .catch(err => {
+                    reject({ message: err })
+                })
+        })
+    }
+
     getAvailableCities() {
         return new Promise((resolve, reject) => {
             deviceRepo.getAvailableCities()
@@ -41,7 +57,7 @@ class DeviceService {
                     reject({ message: err })
                 })
         })
-    }    
+    }
 }
 
 module.exports = new DeviceService()
