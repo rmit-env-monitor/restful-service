@@ -9,5 +9,12 @@ module.exports = (app, socket) => {
         res.status(200).json('success')
     })
 
+    /** Thuan's part */
+    router.post('/sensors', (req, res) => {
+        socket.emit('data', req.body.data)
+        res.status(200).json('success')
+    })
+    /** Thuan's part */
+
     app.use('/arduino', router)
 }
