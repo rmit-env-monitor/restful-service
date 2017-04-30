@@ -14,7 +14,6 @@ module.exports = (app, socket) => {
         socket.emit('data', req.body.data)
         res.status(200).json('success')
     })
-    /** Thuan's part */
 
     app.use('/arduino', router)
 }
