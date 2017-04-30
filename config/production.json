@@ -4,7 +4,7 @@
         "origin": "https://rmit-env-monitor.github.io"
     },
     "mongodb": {
-        "url": "mongodb://localhost:27017/env-monitor"
+        "url": "mongodb://admin:envmonitor@ds043981.mlab.com:43981/heroku_125vnfc6"
     },
     "auth": {
         "secret": "kljv^*80932BN"
