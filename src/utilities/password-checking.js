@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt-nodejs')
 const Promise = global.Promise
 
 module.exports = (plainPassword, hash) => {
