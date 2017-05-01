@@ -11,7 +11,7 @@ module.exports = (app, socket) => {
 
     /** Thuan's part */
     router.post('/sensors', (req, res) => {
-        socket.emit('data', req.body.data)
+        socket.emit('data', req.body)
         res.status(200).json('success')
     })
 
