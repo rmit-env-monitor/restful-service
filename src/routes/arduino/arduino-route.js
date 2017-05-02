@@ -15,5 +15,21 @@ module.exports = (app, socket) => {
         res.status(200).json('success')
     })
 
+    router.post('/backup', (req, res) => {
+        const valueArray = req.body.data.split('_')
+        const jsonValue = {
+            co: valueArray[0],
+            temp: valueArray[1],
+            no2: valueArray[2],
+            o3: valueArray[3],
+            noise: valueArray[4],
+            dust: valueArray[5],
+            gps: valueArray[6]
+        }
+        socket.emit('data', jsonValue)
+        res.status(200).json('success')
+    })
+    /** Thuan's part */
+
     app.use('/arduino', router)
 }
