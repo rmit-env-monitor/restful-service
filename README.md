@@ -8,13 +8,7 @@
 ```
 $ npm i
 ```
--   Generate database, collections and sample documents
-```
-$ mongoimport --db env-monitor --collection users --drop --file db-samples/database-user.json
-$ mongoimport --db env-monitor --collection devices --drop --file db-samples/database-device.json
-$ mongoimport --db env-monitor --collection records --drop --file db-samples/database-record.json
-$ mongoimport --db env-monitor --collection nearby --drop --file db-samples/database-nearby.json
-```
+
 -   Run the service
 ```
 $ npm start

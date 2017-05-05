@@ -1,50 +1,52 @@
-{
-    "_id" : ObjectId("58e7c1ff18078d8e739c3a54"),
-    "city" : "Hồ Chí Minh",
-    "district" : "Quận 7",
-    "nearby" : [ 
-        "Quận 2", 
-        "Quận 4", 
-        "Quận 8", 
-        "Nhà Bè"
-    ]
-}
-{
-    "_id" : ObjectId("58e7c1ff18078d8e739c3a55"),
-    "city" : "Hồ Chí Minh",
-    "district" : "1",
-    "nearby" : [ 
-        "Bình Thạnh", 
-        "Phú Nhuận", 
-        "Quận 3", 
-        "Quận 10", 
-        "Quận 5", 
-        "Quận 4", 
-        "Quận 2"
-    ]
-}
-{
-    "_id" : ObjectId("58e9a5c147eecf04f16f01c9"),
-    "city" : "Hồ Chí Minh",
-    "district" : "Tân Bình",
-    "nearby" : [ 
-        "Gò Vấp", 
-        "Tân Phú", 
-        "Quận 11", 
-        "Quận 10", 
-        "Quận 3", 
-        "Phú Nhuận", 
-        "Quận 12"
-    ]
-}
-{
-    "_id" : ObjectId("58fc207d8fd32d1d9b3599bf"),
-    "city" : "Hồ Chí Minh",
-    "district" : "Quận 10",
-    "nearby" : [ 
-        "Tân Bình", 
-        "Quận 3", 
-        "Quận 11", 
-        "Quận 5"
-    ]
-}
+[
+    {
+        "_id": ObjectId("58e7c1ff18078d8e739c3a54"),
+        "city": "Hồ Chí Minh",
+        "district": "Quận 7",
+        "nearby": [
+            "Quận 2",
+            "Quận 4",
+            "Quận 8",
+            "Nhà Bè"
+        ]
+    },
+    {
+        "_id": ObjectId("58e7c1ff18078d8e739c3a55"),
+        "city": "Hồ Chí Minh",
+        "district": "1",
+        "nearby": [
+            "Bình Thạnh",
+            "Phú Nhuận",
+            "Quận 3",
+            "Quận 10",
+            "Quận 5",
+            "Quận 4",
+            "Quận 2"
+        ]
+    },
+    {
+        "_id": ObjectId("58e9a5c147eecf04f16f01c9"),
+        "city": "Hồ Chí Minh",
+        "district": "Tân Bình",
+        "nearby": [
+            "Gò Vấp",
+            "Tân Phú",
+            "Quận 11",
+            "Quận 10",
+            "Quận 3",
+            "Phú Nhuận",
+            "Quận 12"
+        ]
+    },
+    {
+        "_id": ObjectId("58fc207d8fd32d1d9b3599bf"),
+        "city": "Hồ Chí Minh",
+        "district": "Quận 10",
+        "nearby": [
+            "Tân Bình",
+            "Quận 3",
+            "Quận 11",
+            "Quận 5"
+        ]
+    }
+]

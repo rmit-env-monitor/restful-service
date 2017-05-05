@@ -4,7 +4,7 @@
         "origin": "https://rmit-env-monitor.github.io"
     },
     "mongodb": {
-        "url": "mongodb://172.104.45.207:27017/env-monitor"
+        "url": "mongodb://env-monitor:AssassinJoe94@cluster0-shard-00-00-ocpur.mongodb.net,cluster0-shard-00-01-ocpur.mongodb.net,cluster0-shard-00-02-ocpur.mongodb.net/env-monitor?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin"
     },
     "auth": {
         "secret": "kljv^*80932BN"
