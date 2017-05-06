@@ -11,6 +11,7 @@ module.exports = (app, socket) => {
     })
 
     router.post('/backup', (req, res) => {
+        console.log(req.body.data)
         const valueArray = req.body.data.split('_')
         // Calculate AQI for each
         const aqiValues = [
