@@ -13,7 +13,11 @@ module.exports = (app, socket) => {
     router.post('/backup', (req, res) => {
         console.log(req.body.data)
         const valueArray = req.body.data.split('_')
-        // Calculate AQI for each
+        // Convert NO2 to ppb
+        valueArray[2] *= 1000
+        // Convert O3 to ppm
+        valueArray[3] /= 1000
+        // Calculate AQI for each air sensor
         const aqiValues = [
             aqiCalculation.calculateCO(valueArray[0]),
             aqiCalculation.calculateNO2(valueArray[2]),
@@ -33,6 +37,7 @@ module.exports = (app, socket) => {
         else
             sensorName = 'PM2.5'
 
+        // Format data to be sent
         const jsonValue = {
             co: valueArray[0],
             temp: valueArray[1],

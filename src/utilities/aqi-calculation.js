@@ -149,22 +149,22 @@ function calculateO3(cctt) {
     let brpt_high = 0
     let brpt_low = 0
 
-    if (cctt >= 0.125 && cctt <= 0.164) {
+    if (cctt >= 0 && cctt <= 0.054) {
         AQI_high = 150
         AQI_low = 101
         brpt_high = 55.4
         brpt_low = 35.5
-    } else if (cctt >= 0.165 && cctt <= 0.204) {
+    } else if (cctt >= 0.055 && cctt <= 0.070) {
         AQI_high = 200
         AQI_low = 151
         brpt_high = 150.4
         brpt_low = 55.5
-    } else if (cctt >= 0.205 && cctt <= 0.404) {
+    } else if (cctt >= 0.071 && cctt <= 0.085) {
         AQI_high = 300
         AQI_low = 201
         brpt_high = 250.4
         brpt_low = 150.5
-    } else if (cctt >= 0.405 && cctt <= 0.504) {
+    } else if (cctt >= 0.086 && cctt <= 0.105) {
         AQI_high = 400
         AQI_low = 301
         brpt_high = 350.4
@@ -182,5 +182,6 @@ function calculateO3(cctt) {
 function calculate(AQI_high, AQI_low, brpt_high, brpt_low, cctt) {
     const AQI_up = AQI_high - AQI_low
     const brpt_down = brpt_high - brpt_low
-    return Math.round((AQI_up / brpt_down) * (cctt - brpt_low) + AQI_low)
+    const result = (AQI_up / brpt_down) * (cctt - brpt_low) + AQI_low
+    return Math.round(result)
 }
