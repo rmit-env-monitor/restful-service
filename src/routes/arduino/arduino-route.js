@@ -26,17 +26,7 @@ module.exports = (app, socket) => {
         ]
         // Get avarage AQI
         const maxAQI = Math.max(...aqiValues)
-        const sensorIndex = aqiValues.indexOf(maxAQI)
-        let sensorName = ''
-        if (sensorIndex === 0)
-            sensorName = 'CO'
-        else if (sensorIndex === 1)
-            sensorName = 'NO2'
-        else if (sensorIndex === 2)
-            sensorName = 'O3'
-        else
-            sensorName = 'PM2.5'
-
+        const sensorName = aqiCalculation.getMaxAQIName(maxAQI, aqiValues)
         // Format data to be sent
         const jsonValue = {
             co: valueArray[0],
@@ -52,7 +42,6 @@ module.exports = (app, socket) => {
         socket.emit('data', jsonValue)
         res.status(200).json(jsonValue)
     })
-    /** Thuan's part */
 
     app.use('/arduino', router)
 }
