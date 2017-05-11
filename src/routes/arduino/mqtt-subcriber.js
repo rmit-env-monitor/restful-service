@@ -14,7 +14,6 @@ module.exports = (socket) => {
         switch (topic) {
             case constants.MQTT_SENSORS_DATA:
                 console.log(message.toString())
-                console.log('--------------')
                 const rawData = message.toString().split('_')
                 let data = {
                     deviceID: rawData[0],
