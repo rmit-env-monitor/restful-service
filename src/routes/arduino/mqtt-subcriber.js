@@ -13,6 +13,8 @@ module.exports = (socket) => {
     client.on('message', (topic, message) => {
         switch (topic) {
             case constants.MQTT_SENSORS_DATA:
+                console.log(message.toString())
+                console.log('--------------')
                 const rawData = message.toString().split('_')
                 let data = {
                     deviceID: rawData[0],
@@ -26,13 +28,13 @@ module.exports = (socket) => {
                     sound: rawData[8],
                     uv: rawData[9]
                 }
-                
+
                 // Insert record to DB.
-                arduinoService.addNewRecord(data)
+                // arduinoService.addNewRecord(data)
                 // Confirm result to publisher.
                 client.publish('result', 'success')
                 // Broadcast new data to clients.
-                socket.emit(data.deviceID, data)
+                // socket.emit(data.deviceID, data)
                 break
 
             default:
