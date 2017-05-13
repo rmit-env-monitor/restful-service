@@ -1,6 +1,8 @@
 const Promise = global.Promise
+const q = require('q')
 
 const deviceRepo = require('../../DAL/repositories/device-repository')
+const recordService = require('./record-service')
 
 class DeviceService {
     getDevicesByCityDistrict(city, district) {
@@ -9,13 +11,13 @@ class DeviceService {
             district: district
         }
         return new Promise((resolve, reject) => {
-            deviceRepo.getDevicesByCityDistrict(condition, '_id name')
-                .then(devices => {
-                    resolve(devices)
+            deviceRepo.getDevicesByCityDistrict(condition, '_id name lat lng').then(devices => {
+                this.getDeviceLastestRecord(devices).then((deviceList) => {
+                    resolve(deviceList)
                 })
-                .catch(err => {
-                    reject({ message: err })
-                })
+            }).catch(err => {
+                reject({ message: err })
+            })
         })
     }
 
@@ -56,6 +58,38 @@ class DeviceService {
                 .catch(err => {
                     reject({ message: err })
                 })
+        })
+    }
+
+    getDevicesCopy(devices) {
+        const devicesCopy = []
+        for (let device of devices) {
+            const newDevice = {}
+            newDevice._id = device._id
+            newDevice.name = device.name
+            newDevice.lat = device.lat
+            newDevice.lng = device.lng
+            devicesCopy.push(newDevice)
+        }
+        return devicesCopy
+    }
+
+    getDeviceLastestRecord(devices) {
+        const deviceList = this.getDevicesCopy(devices)
+        const deviceListLength = deviceList.length
+        const promises = []
+        return new Promise((resolve, reject) => {
+            for (let index = 0; index < deviceListLength; index++) {
+                let promise = recordService.getLatestDeviceRecord(deviceList[index]._id)
+                    .then(record => {
+                        deviceList[index].record = record
+                    })
+                promises.push(promise)
+            }
+
+            q.all(promises).then(() => {
+                resolve(deviceList)
+            })
         })
     }
 }
