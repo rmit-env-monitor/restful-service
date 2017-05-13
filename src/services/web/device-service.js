@@ -61,6 +61,8 @@ class DeviceService {
         })
     }
 
+    //--- Private functions ---//
+    
     getDevicesCopy(devices) {
         const devicesCopy = []
         for (let device of devices) {

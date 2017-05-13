@@ -8,7 +8,7 @@ class RecordService {
         return new Promise((resolve, reject) => {
             recordRepo.getLatestDeviceRecord({ deviceID: condition }, '-_id', 1, constants.NO_ID)
                 .then(records => {
-                    resolve(records)
+                    resolve(records[0])
                 })
                 .catch(err => {
                     reject({ message: err })
