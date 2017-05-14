@@ -3,6 +3,7 @@ const q = require('q')
 
 const deviceRepo = require('../../DAL/repositories/device-repository')
 const recordService = require('./record-service')
+const constants = require('../../utilities/constants')
 
 class DeviceService {
     getDevicesByCityDistrict(city, district) {
@@ -11,8 +12,8 @@ class DeviceService {
             district: district
         }
         return new Promise((resolve, reject) => {
-            deviceRepo.getDevicesByCityDistrict(condition, '_id name lat lng').then(devices => {
-                this.getDeviceLastestRecord(devices).then((deviceList) => {
+            deviceRepo.getDevicesByCityDistrict(condition, constants.ID_NAME_LAT_LNG).then(devices => {
+                this.getDeviceLastestRecord(devices).then(deviceList => {
                     resolve(deviceList)
                 })
             }).catch(err => {
@@ -27,13 +28,14 @@ class DeviceService {
             district: district
         }
         return new Promise((resolve, reject) => {
-            deviceRepo.getOneDeviceByCityDistrict(condition, '_id name')
-                .then(devices => {
-                    devices ? resolve([devices]) : resolve([])
+            deviceRepo.getOneDeviceByCityDistrict(condition, constants.ID_NAME_LAT_LNG).then(devices => {
+                devices = devices ? [devices] : []
+                this.getDeviceLastestRecord(devices).then(deviceList => {
+                    resolve(deviceList)
                 })
-                .catch(err => {
-                    reject({ message: err })
-                })
+            }).catch(err => {
+                reject({ message: err })
+            })
         })
     }
 
@@ -62,7 +64,7 @@ class DeviceService {
     }
 
     //--- Private functions ---//
-    
+
     getDevicesCopy(devices) {
         const devicesCopy = []
         for (let device of devices) {
