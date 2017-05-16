@@ -86,7 +86,7 @@ class DeviceService {
             for (let index = 0; index < deviceListLength; index++) {
                 let promise = recordService.getLatestDeviceRecord(deviceList[index]._id)
                     .then(record => {
-                        deviceList[index].record = record
+                        deviceList[index].record = record || {}
                     })
                 promises.push(promise)
             }

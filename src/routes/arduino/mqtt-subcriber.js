@@ -33,7 +33,7 @@ module.exports = (socket) => {
                 // Confirm result to publisher.
                 client.publish('result', 'success')
                 // Broadcast new data to clients.
-                // socket.emit(data.deviceID, data)
+                socket.emit(data.deviceID, data)
                 break
 
             default:
