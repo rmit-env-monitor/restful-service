@@ -7,7 +7,7 @@ class NearbyService {
         return new Promise((resolve, reject) => {
             nearbyRepo.getNearbyRecord(city, district, '-_id nearby')
                 .then(nearby => {
-                    resolve(nearby)
+                    resolve(nearby.nearby)
                 })
                 .catch(err => {
                     reject({ message: err })
