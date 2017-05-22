@@ -10,6 +10,6 @@
         "secret": "kljv^*80932BN"
     },
     "mqtt": {
-        "address": "mqtt://localhost:1883"
+        "address": "mqtt://mqtt-broker.ap-southeast-1.elasticbeanstalk.com:1883"
     }
 }
