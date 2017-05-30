@@ -1,26 +1,20 @@
 const config = require('config')
-const PubNub = require('pubnub')
+const mqtt = require('mqtt')
 
 const constants = require('../../utilities/constants')
 const arduinoService = require('../../services/arduino/service')
-const pubnub = new PubNub({
-    subscribeKey: config.get('pubnub.sub-key'),
-    secretKey: config.get('pubnub.secret-key'),
-    ssl: true
-})
 
-module.exports = (socket) => {
-    pubnub.addListener({
-        message: m => {
-            var msg = m.message; // The Payload
-            // Insert record to DB.
-            arduinoService.addNewRecord(msg)
-            // Broadcast new data to client apps.
-            socket.emit(msg.deviceID, msg)
-        }
+const client = mqtt.connect(config.get('mqtt.address'))
+
+module.exports = socket => {
+    client.on('connect', () => {
+        client.subscribe(constants.MQTT_SENSORS_DATA)
     })
 
-    pubnub.subscribe({
-        channels: [constants.MQTT_SENSORS_DATA]
+    client.on('message', (topic, message) => {
+        client.publish('result', 'success')
+        console.log('Topic: ' + topic)
+        console.log('Message: ' + message.toString())
+        console.log('---')
     })
 }
