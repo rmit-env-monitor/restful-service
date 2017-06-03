@@ -22,9 +22,11 @@
     "mongoose": "^4.9.3",
     "morgan": "^1.8.1",
     "mqtt": "^2.8.0",
+    "nan": "^2.6.2",
     "pubnub": "^4.10.0",
     "q": "^1.5.0",
     "redis": "^2.7.1",
     "socket.io": "^1.7.3"
-  }
+  },
+  "devDependencies": {}
 }

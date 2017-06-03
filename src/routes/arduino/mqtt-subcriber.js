@@ -1,5 +1,6 @@
 const config = require('config')
 const mqtt = require('mqtt')
+const coCalculation = require('../../aqi-calculation/co-calculation/build/Release/coCalculation.node')
 
 const constants = require('../../utilities/constants')
 const arduinoService = require('../../services/arduino/service')
