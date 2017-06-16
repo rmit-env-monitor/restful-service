@@ -1,5 +1,5 @@
 const Promise = global.Promise
-const bcrypt = require('bcrypt-nodejs')
+const bcrypt = require('bcrypt')
 
 module.exports = plainPassword => {
     const saltRound = randomIntInc(1, 11)
