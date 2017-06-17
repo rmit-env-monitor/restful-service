@@ -7,7 +7,13 @@
   },
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "cobuild": "cd src/aqi-calculation/co-calculation && node-gyp configure && node-gyp build",
+    "no2build": "cd src/aqi-calculation/no2-calculation && node-gyp configure && node-gyp build",
+    "o3build": "cd src/aqi-calculation/o3-calculation && node-gyp configure && node-gyp build",
+    "pm10build": "cd src/aqi-calculation/pm10-calculation && node-gyp configure && node-gyp build",
+    "pm25build": "cd src/aqi-calculation/pm25-calculation && node-gyp configure && node-gyp build",
+    "so2build": "cd src/aqi-calculation/so2-calculation && node-gyp configure && node-gyp build"
   },
   "author": "joebui",
   "license": "ISC",

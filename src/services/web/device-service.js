@@ -88,6 +88,9 @@ class DeviceService {
                     .then(record => {
                         deviceList[index].record = record || {}
                     })
+                    .catch(err => {
+                        reject({ message: err })
+                    })
                 promises.push(promise)
             }
 
