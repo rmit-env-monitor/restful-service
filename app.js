@@ -6,11 +6,12 @@ const config = require('config')
 const server = require('http').Server(app)
 const socket = require('socket.io')(server)
 const cors = require('cors')
+const helmet = require('helmet')
 
 const tokenCheck = require('./src/middlewares/token-check-middleware')
 
 /** Establish connection to MongoDB */
-require('./src/DAL/connection')
+require('./src/DAL/mongodb-connection')
 
 /** Routing */
 const arduino = require('./src/routes/arduino')
@@ -25,7 +26,7 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.disable('x-powered-by')
+app.use(helmet())
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', config.get('express.origin'))
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
