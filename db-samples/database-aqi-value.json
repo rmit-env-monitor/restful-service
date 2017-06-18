@@ -81,5 +81,16 @@
     "o3AQI": 205,
     "coAQI": 342,
     "aqi": 76
+  },
+  {
+    "deviceID": "5942a9fb388944c81507cc37",
+    "utcDateTime": "19930821",
+    "no2AQI": 45,
+    "so2AQI": 53,
+    "pm25AQI": 142,
+    "pm10AQI": 160,
+    "o3AQI": 205,
+    "coAQI": 342,
+    "aqi": 76
   }
 ]

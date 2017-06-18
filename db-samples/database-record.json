@@ -88,5 +88,17 @@
     "co": 342,
     "sound": 55,
     "temperature": 32
+  },
+  {
+    "deviceID": "5942a9fb388944c81507cc37",
+    "utcDateTime": "19930821",
+    "no2": 45,
+    "so2": 53,
+    "pm25": 142,
+    "pm10": 160,
+    "o3": 205,
+    "co": 342,
+    "sound": 55,
+    "temperature": 32
   }
 ]
