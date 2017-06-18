@@ -7,7 +7,7 @@ const constants = require('../../utilities/constants')
 class RecordService {
     getRecordsByDevice(device) {
         return new Promise((resolve, reject) => {
-            recordRepo.getRecordsByDevice({ deviceID: device }, constants.NO_ID)
+            recordRepo.getRecordsByDevice({ deviceID: device }, constants.MONGOOSE_QUERY.NO_ID)
                 .then(records => {
                     resolve(records)
                 })

@@ -1,4 +1,5 @@
 const Promise = global.Promise
+const redis = global.redis
 const q = require('q')
 
 const deviceRepo = require('../../DAL/repositories/device-repository')
@@ -11,7 +12,7 @@ class DeviceService {
         const condition = { city: city, district: district }
 
         return new Promise((resolve, reject) => {
-            global.redis.get(deviceListKey, (err, reply) => {
+            redis.get(deviceListKey, (err, reply) => {
                 if (err) {
                     reject({ message: err })
                 } else if (reply) {
@@ -25,8 +26,8 @@ class DeviceService {
                 } else {
                     deviceRepo.getDevicesByCityDistrict(condition, constants.MONGOOSE_QUERY.ID_NAME_LAT_LNG)
                         .then(devices => {
-                            global.redis.set(deviceListKey, JSON.stringify(devices))
-                            global.redis.expire(deviceListKey, constants.ONE_DAY_EXPIRE)
+                            redis.set(deviceListKey, JSON.stringify(devices))
+                            redis.expire(deviceListKey, constants.ONE_DAY_EXPIRE)
                             this.getDeviceLastestRecord(devices)
                                 .then(deviceList => {
                                     resolve(deviceList)
@@ -45,7 +46,7 @@ class DeviceService {
 
     getAvailableCities() {
         return new Promise((resolve, reject) => {
-            global.redis.get(constants.CITY_LIST, (err, reply) => {
+            redis.get(constants.CITY_LIST, (err, reply) => {
                 if (err) {
                     reject({ message: err })
                 } else if (reply) {
@@ -53,8 +54,8 @@ class DeviceService {
                 } else {
                     deviceRepo.getAvailableCities()
                         .then(cities => {
-                            global.redis.set(constants.CITY_LIST, JSON.stringify(cities))
-                            global.redis.expire(constants.CITY_LIST, constants.ONE_DAY_EXPIRE)
+                            redis.set(constants.CITY_LIST, JSON.stringify(cities))
+                            redis.expire(constants.CITY_LIST, constants.ONE_DAY_EXPIRE)
                             resolve(cities)
                         })
                         .catch(err => {
@@ -68,7 +69,7 @@ class DeviceService {
     getAvailableDistrictsByCity(city) {
         const key = city + '_districts'
         return new Promise((resolve, reject) => {
-            global.redis.get(key, (err, reply) => {
+            redis.get(key, (err, reply) => {
                 if (err) {
                     reject({ message: err })
                 } else if (reply) {
@@ -76,8 +77,8 @@ class DeviceService {
                 } else {
                     deviceRepo.getAvailableDistrictsByCity(city)
                         .then(districts => {
-                            global.redis.set(key, JSON.stringify(districts))
-                            global.redis.expire(key, constants.ONE_DAY_EXPIRE)
+                            redis.set(key, JSON.stringify(districts))
+                            redis.expire(key, constants.ONE_DAY_EXPIRE)
                             resolve(districts)
                         })
                         .catch(err => {

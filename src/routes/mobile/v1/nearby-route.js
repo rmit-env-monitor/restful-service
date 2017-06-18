@@ -4,12 +4,7 @@ const nearbyService = require('../../../services/mobile/v1/nearby-service')
 
 module.exports = app => {
     /**
-     * Get nearby districts based on current city and district
-     * URL: /api/mobile/v1/nearby
-     * Method: GET
-     * Query: city, district
-     * Success: return nearby: []
-     * Error: return {message}
+     * GET: /api/web/nearby?city=<value>&district=<value>
      */
     router.get('/nearby', (req, res) => {
         nearbyService.getNearbyRecord(req.query.city, req.query.district)

@@ -1,25 +1,23 @@
 const Promise = global.Promise
+const redis = global.redis
 
-const redis = require('../../DAL/redis-connection')
 const nearbyRepo = require('../../DAL/repositories/nearby-repository')
+const constants = require('../../utilities/constants')
 
 class NearbyService {
     getNearbyRecord(city, district) {
-        const key = city + '-' + district
+        const key = city + '_' + district + '_nearby'
         return new Promise((resolve, reject) => {
-            // Check data in redis.
             redis.get(key, (err, reply) => {
                 if (err) {
-                    // Error.
                     reject({ message: err })
                 } else if (reply) {
-                    // Data exists.
                     resolve(JSON.parse(reply))
                 } else {
-                    // Get data from mongo and store in redis.
-                    nearbyRepo.getNearbyRecord(city, district, '-_id nearby')
+                    nearbyRepo.getNearbyRecord(city, district, constants.MONGOOSE_QUERY.NEARBY)
                         .then(nearby => {
                             redis.set(key, JSON.stringify(nearby.nearby))
+                            redis.expire(key, constants.ONE_WEEK_EXPIRE)
                             resolve(nearby.nearby)
                         })
                         .catch(err => {
