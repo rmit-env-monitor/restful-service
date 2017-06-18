@@ -7,86 +7,98 @@ const constants = require('../../utilities/constants')
 
 class DeviceService {
     getDevicesByCityDistrict(city, district) {
-        const condition = {
-            city: city,
-            district: district
-        }
-        return new Promise((resolve, reject) => {
-            deviceRepo.getDevicesByCityDistrict(condition, constants.ID_NAME_LAT_LNG).then(devices => {
-                this.getDeviceLastestRecord(devices).then(deviceList => {
-                    resolve(deviceList)
-                })
-            }).catch(err => {
-                reject({ message: err })
-            })
-        })
-    }
+        const deviceListKey = city + '_' + district + '_key'
+        const condition = { city: city, district: district }
 
-    getOneDeviceByCityDistrict(city, district) {
-        const condition = {
-            city: city,
-            district: district
-        }
         return new Promise((resolve, reject) => {
-            deviceRepo.getOneDeviceByCityDistrict(condition, constants.ID_NAME_LAT_LNG).then(devices => {
-                devices = devices ? [devices] : []
-                this.getDeviceLastestRecord(devices).then(deviceList => {
-                    resolve(deviceList)
-                })
-            }).catch(err => {
-                reject({ message: err })
+            global.redis.get(deviceListKey, (err, reply) => {
+                if (err) {
+                    reject({ message: err })
+                } else if (reply) {
+                    this.getDeviceLastestRecord(JSON.parse(reply))
+                        .then(deviceList => {
+                            resolve(deviceList)
+                        })
+                        .catch(err => {
+                            reject({ message: err })
+                        })
+                } else {
+                    deviceRepo.getDevicesByCityDistrict(condition, constants.MONGOOSE_QUERY.ID_NAME_LAT_LNG)
+                        .then(devices => {
+                            global.redis.set(deviceListKey, JSON.stringify(devices))
+                            global.redis.expire(deviceListKey, constants.ONE_DAY_EXPIRE)
+                            this.getDeviceLastestRecord(devices)
+                                .then(deviceList => {
+                                    resolve(deviceList)
+                                })
+                                .catch(err => {
+                                    reject({ message: err })
+                                })
+                        })
+                        .catch(err => {
+                            reject({ message: err })
+                        })
+                }
             })
         })
     }
 
     getAvailableCities() {
         return new Promise((resolve, reject) => {
-            deviceRepo.getAvailableCities()
-                .then(cities => {
-                    resolve(cities)
-                })
-                .catch(err => {
+            global.redis.get(constants.CITY_LIST, (err, reply) => {
+                if (err) {
                     reject({ message: err })
-                })
+                } else if (reply) {
+                    resolve(JSON.parse(reply))
+                } else {
+                    deviceRepo.getAvailableCities()
+                        .then(cities => {
+                            global.redis.set(constants.CITY_LIST, JSON.stringify(cities))
+                            global.redis.expire(constants.CITY_LIST, constants.ONE_DAY_EXPIRE)
+                            resolve(cities)
+                        })
+                        .catch(err => {
+                            reject({ message: err })
+                        })
+                }
+            })
         })
     }
 
     getAvailableDistrictsByCity(city) {
+        const key = city + '_districts'
         return new Promise((resolve, reject) => {
-            deviceRepo.getAvailableDistrictsByCity(city)
-                .then(districts => {
-                    resolve(districts)
-                })
-                .catch(err => {
+            global.redis.get(key, (err, reply) => {
+                if (err) {
                     reject({ message: err })
-                })
+                } else if (reply) {
+                    resolve(JSON.parse(reply))
+                } else {
+                    deviceRepo.getAvailableDistrictsByCity(city)
+                        .then(districts => {
+                            global.redis.set(key, JSON.stringify(districts))
+                            global.redis.expire(key, constants.ONE_DAY_EXPIRE)
+                            resolve(districts)
+                        })
+                        .catch(err => {
+                            reject({ message: err })
+                        })
+
+                }
+            })
         })
     }
 
     //--- Private functions ---//
 
-    getDevicesCopy(devices) {
-        const devicesCopy = []
-        for (let device of devices) {
-            const newDevice = {}
-            newDevice._id = device._id
-            newDevice.name = device.name
-            newDevice.lat = device.lat
-            newDevice.lng = device.lng
-            devicesCopy.push(newDevice)
-        }
-        return devicesCopy
-    }
-
     getDeviceLastestRecord(devices) {
-        const deviceList = this.getDevicesCopy(devices)
-        const deviceListLength = deviceList.length
+        const deviceListLength = devices.length
         const promises = []
         return new Promise((resolve, reject) => {
             for (let index = 0; index < deviceListLength; index++) {
-                let promise = recordService.getLatestDeviceRecord(deviceList[index]._id)
+                let promise = recordService.getLatestDeviceRecord(devices[index]._id)
                     .then(record => {
-                        deviceList[index].record = record || {}
+                        '_doc' in devices[index] ? devices[index]._doc.record = record : devices[index].record = record
                     })
                     .catch(err => {
                         reject({ message: err })
@@ -95,7 +107,7 @@ class DeviceService {
             }
 
             q.all(promises).then(() => {
-                resolve(deviceList)
+                resolve(devices)
             })
         })
     }

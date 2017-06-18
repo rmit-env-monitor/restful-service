@@ -11,18 +11,22 @@ class RecordService {
             // Get AQI records.
             aqiValueRepo.getLatestDeviceRecord({ deviceID: condition }, '-_id', 1, constants.MONGOOSE_QUERY.NO_ID_DEVICEID_DATE)
                 .then(values => {
-                    record = values[0]
-                    // Get date, sound and temparature.
-                    recordRepo.getLatestDeviceRecord({ deviceID: condition }, '-_id', 1, constants.MONGOOSE_QUERY.DATE_SOUND_TEMP)
-                        .then(records => {
-                            record._doc.temperature = records[0].temperature
-                            record._doc.sound = records[0].sound
-                            record._doc.utcDateTime = records[0].utcDateTime
-                            resolve(record)
-                        })
-                        .catch(err => {
-                            reject({ message: err })
-                        })
+                    if (values.length > 0) {
+                        record = values[0]
+                        // Get date, sound and temparature.
+                        recordRepo.getLatestDeviceRecord({ deviceID: condition }, '-_id', 1, constants.MONGOOSE_QUERY.DATE_SOUND_TEMP)
+                            .then(records => {
+                                record._doc.temperature = records[0].temperature
+                                record._doc.sound = records[0].sound
+                                record._doc.utcDateTime = records[0].utcDateTime
+                                resolve(record)
+                            })
+                            .catch(err => {
+                                reject({ message: err })
+                            })
+                    } else {
+                        resolve(record)
+                    }
                 })
                 .catch(err => {
                     reject({ message: err })
