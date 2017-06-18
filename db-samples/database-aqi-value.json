@@ -1,0 +1,85 @@
+[
+  {
+    "_id": ObjectId("58cd1d878eab4f58274283d1"),
+    "deviceID": "58cd20a28eab4f58274284b0",
+    "utcDateTime": "19930821",
+    "no2AQI": 45,
+    "so2AQI": 43,
+    "pm25AQI": 342,
+    "pm10AQI": 34,
+    "o3AQI": 342,
+    "coAQI": 342,
+    "aqi": 76
+  },
+  {
+    "_id": ObjectId("58cd1d878eab4f58274283d2"),
+    "deviceID": "58cd20a28eab4f58274284b0",
+    "utcDateTime": "19930821",
+    "no2AQI": 45,
+    "so2AQI": 43,
+    "pm25AQI": 342,
+    "pm10AQI": 34,
+    "o3AQI": 23,
+    "coAQI": 342,
+    "aqi": 76
+  },
+  {
+    "_id": ObjectId("58cd1d878eab4f58274283d3"),
+    "deviceID": "58cd20a28eab4f58274284af",
+    "utcDateTime": "19930821",
+    "no2AQI": 45,
+    "so2AQI": 43,
+    "pm25AQI": 342,
+    "pm10AQI": 34,
+    "o3AQI": 33,
+    "coAQI": 342,
+    "aqi": 76
+  },
+  {
+    "_id": ObjectId("58ce798fcdbd2b28b2544676"),
+    "deviceID": "58cd20a28eab4f58274284b0",
+    "utcDateTime": "19930821",
+    "no2AQI": 45,
+    "so2AQI": 43,
+    "pm25AQI": 342,
+    "pm10AQI": 34,
+    "o3AQI": 33,
+    "coAQI": 342,
+    "aqi": 76
+  },
+  {
+    "_id": ObjectId("58d936904c0787794895af65"),
+    "deviceID": "58cfe9637dbe2538f7bf038f",
+    "utcDateTime": "19930821",
+    "no2AQI": 45,
+    "so2AQI": 53,
+    "pm25AQI": 142,
+    "pm10AQI": 160,
+    "o3AQI": 205,
+    "coAQI": 42,
+    "aqi": 76
+  },
+  {
+    "_id": ObjectId("58ea240047eecf04f16f2669"),
+    "deviceID": "58e9faa447eecf04f16f1961",
+    "utcDateTime": "19930821",
+    "no2AQI": 45,
+    "so2AQI": 53,
+    "pm25AQI": 142,
+    "pm10AQI": 160,
+    "o3AQI": 205,
+    "coAQI": 342,
+    "aqi": 76
+  },
+  {
+    "deviceID": "58f2ac54ddd17c8b4a89b104",
+    "utcDateTime": "19930821",
+    "no2AQI": 45,
+    "so2AQI": 53,
+    "pm25AQI": 142,
+    "pm10AQI": 160,
+    "o3AQI": 205,
+    "coAQI": 342,
+    "aqi": 76
+  }
+]

@@ -4,17 +4,19 @@ const schema = new mongoose.Schema(
     {
         deviceID: 'string',
         utcDateTime: 'string',
-        no: 'number', noAQI: 'number',
-        so2: 'number', so2AQI: 'number',
-        pm2: 'number', pm2AQI: 'number',
-        pm10: 'number', pm10AQI: 'number',
-        o3: 'number', o3AQI: 'number',
-        co: 'number', coAQI: 'number',
+        no2: 'number',
+        so2: 'number',
+        pm2: 'number',
+        pm10: 'number',
+        o3: 'number',
+        co: 'number',
         sound: 'number',
-        uv: 'number',
+        temperature: 'number',
         aqi: 'number'
     },
-    { collection: 'records' }
+    {
+        collection: 'records'
+    }
 )
 
 module.exports = mongoose.model('records', schema)

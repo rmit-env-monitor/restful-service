@@ -2,9 +2,13 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema(
     {
-        city: 'string', districts: 'string', nearby: 'array'
+        city: 'string',
+        districts: 'string',
+        nearby: 'array'
     },
-    { collection: 'nearby' }
+    {
+        collection: 'nearby'
+    }
 )
 
 module.exports = mongoose.model('nearby', schema)
