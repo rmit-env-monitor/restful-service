@@ -7,7 +7,7 @@ module.exports = {
     MONGOOSE_QUERY: {
         NO_ID: '-_id -__v',
         ID_NAME_LAT_LNG: '_id name lat lng',
-        DATE_SOUND_TEMP: 'utcDateTime sound temperature',
+        DATE_SOUND_TEMP_UV_HUMIDITY: 'utcDateTime sound temperature uv humidity',
         NO_ID_DEVICEID_DATE: '-_id -deviceID -utcDateTime',
         NEARBY: '-_id nearby'
     }

@@ -26,11 +26,13 @@ class RecordService {
                     if (values.length > 0) {
                         record = values[0]
                         // Get date, sound and temparature.
-                        recordRepo.getLatestDeviceRecord({ deviceID: condition }, '-_id', 1, constants.MONGOOSE_QUERY.DATE_SOUND_TEMP)
+                        recordRepo.getLatestDeviceRecord({ deviceID: condition }, '-_id', 1, constants.MONGOOSE_QUERY.DATE_SOUND_TEMP_UV_HUMIDITY)
                             .then(records => {
                                 record._doc.temperature = records[0].temperature
                                 record._doc.sound = records[0].sound
                                 record._doc.utcDateTime = records[0].utcDateTime
+                                record._doc.uv = records[0].uv
+                                record._doc.humidity = records[0].humidity
                                 resolve(record)
                             })
                             .catch(err => {

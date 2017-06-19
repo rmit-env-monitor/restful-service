@@ -10,7 +10,9 @@
     "o3": 342,
     "co": 342,
     "sound": 145,
-    "temperature": 32
+    "temperature": 32,
+    "uv": 9,
+    "humidity": 50
   },
   {
     "_id": ObjectId("58cd1d878eab4f58274283d2"),
@@ -23,7 +25,9 @@
     "o3": 23,
     "co": 342,
     "sound": 146,
-    "temperature": 32
+    "temperature": 32,
+    "uv": 9,
+    "humidity": 50
   },
   {
     "_id": ObjectId("58cd1d878eab4f58274283d3"),
@@ -36,7 +40,9 @@
     "o3": 33,
     "co": 342,
     "sound": 145,
-    "temperature": 32
+    "temperature": 32,
+    "uv": 9,
+    "humidity": 50
   },
   {
     "_id": ObjectId("58ce798fcdbd2b28b2544676"),
@@ -49,7 +55,9 @@
     "o3": 33,
     "co": 342,
     "sound": 50,
-    "temperature": 32
+    "temperature": 32,
+    "uv": 9,
+    "humidity": 50
   },
   {
     "_id": ObjectId("58d936904c0787794895af65"),
@@ -62,7 +70,9 @@
     "o3": 205,
     "co": 42,
     "sound": 55,
-    "temperature": 32
+    "temperature": 32,
+    "uv": 9,
+    "humidity": 50
   },
   {
     "_id": ObjectId("58ea240047eecf04f16f2669"),
@@ -75,7 +85,9 @@
     "o3": 205,
     "co": 342,
     "sound": 55,
-    "temperature": 32
+    "temperature": 32,
+    "uv": 9,
+    "humidity": 50
   },
   {
     "deviceID": "58f2ac54ddd17c8b4a89b104",
@@ -87,7 +99,9 @@
     "o3": 205,
     "co": 342,
     "sound": 55,
-    "temperature": 32
+    "temperature": 32,
+    "uv": 9,
+    "humidity": 50
   },
   {
     "deviceID": "5942a9fb388944c81507cc37",
@@ -99,6 +113,8 @@
     "o3": 205,
     "co": 342,
     "sound": 55,
-    "temperature": 32
+    "temperature": 32,
+    "uv": 9,
+    "humidity": 50
   }
 ]

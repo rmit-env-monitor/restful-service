@@ -12,7 +12,8 @@ const schema = new mongoose.Schema(
         co: 'number',
         sound: 'number',
         temperature: 'number',
-        aqi: 'number'
+        uv: 'number',
+        humidity: 'number'
     },
     {
         collection: 'records'
