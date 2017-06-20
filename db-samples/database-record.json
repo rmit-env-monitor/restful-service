@@ -12,7 +12,16 @@
     "sound": 145,
     "temperature": 32,
     "uv": 9,
-    "humidity": 50
+    "humidity": 50,
+    "aqiValues": {
+      "no2AQI": 45,
+      "so2AQI": 43,
+      "pm25AQI": 342,
+      "pm10AQI": 34,
+      "o3AQI": 342,
+      "coAQI": 342,
+      "aqi": 76
+    }
   },
   {
     "_id": ObjectId("58cd1d878eab4f58274283d2"),
@@ -27,7 +36,16 @@
     "sound": 146,
     "temperature": 32,
     "uv": 9,
-    "humidity": 50
+    "humidity": 50,
+    "aqiValues": {
+      "no2AQI": 45,
+      "so2AQI": 43,
+      "pm25AQI": 342,
+      "pm10AQI": 34,
+      "o3AQI": 342,
+      "coAQI": 342,
+      "aqi": 76
+    }
   },
   {
     "_id": ObjectId("58cd1d878eab4f58274283d3"),
@@ -42,7 +60,16 @@
     "sound": 145,
     "temperature": 32,
     "uv": 9,
-    "humidity": 50
+    "humidity": 50,
+    "aqiValues": {
+      "no2AQI": 45,
+      "so2AQI": 43,
+      "pm25AQI": 342,
+      "pm10AQI": 34,
+      "o3AQI": 342,
+      "coAQI": 342,
+      "aqi": 76
+    }
   },
   {
     "_id": ObjectId("58ce798fcdbd2b28b2544676"),
@@ -57,7 +84,16 @@
     "sound": 50,
     "temperature": 32,
     "uv": 9,
-    "humidity": 50
+    "humidity": 50,
+    "aqiValues": {
+      "no2AQI": 45,
+      "so2AQI": 43,
+      "pm25AQI": 342,
+      "pm10AQI": 34,
+      "o3AQI": 342,
+      "coAQI": 342,
+      "aqi": 76
+    }
   },
   {
     "_id": ObjectId("58d936904c0787794895af65"),
@@ -72,7 +108,16 @@
     "sound": 55,
     "temperature": 32,
     "uv": 9,
-    "humidity": 50
+    "humidity": 50,
+    "aqiValues": {
+      "no2AQI": 45,
+      "so2AQI": 43,
+      "pm25AQI": 342,
+      "pm10AQI": 34,
+      "o3AQI": 342,
+      "coAQI": 342,
+      "aqi": 76
+    }
   },
   {
     "_id": ObjectId("58ea240047eecf04f16f2669"),
@@ -87,7 +132,16 @@
     "sound": 55,
     "temperature": 32,
     "uv": 9,
-    "humidity": 50
+    "humidity": 50,
+    "aqiValues": {
+      "no2AQI": 45,
+      "so2AQI": 43,
+      "pm25AQI": 342,
+      "pm10AQI": 34,
+      "o3AQI": 342,
+      "coAQI": 342,
+      "aqi": 76
+    }
   },
   {
     "deviceID": "58f2ac54ddd17c8b4a89b104",
@@ -101,7 +155,16 @@
     "sound": 55,
     "temperature": 32,
     "uv": 9,
-    "humidity": 50
+    "humidity": 50,
+    "aqiValues": {
+      "no2AQI": 45,
+      "so2AQI": 43,
+      "pm25AQI": 342,
+      "pm10AQI": 34,
+      "o3AQI": 342,
+      "coAQI": 342,
+      "aqi": 76
+    }
   },
   {
     "deviceID": "5942a9fb388944c81507cc37",
@@ -115,6 +178,15 @@
     "sound": 55,
     "temperature": 32,
     "uv": 9,
-    "humidity": 50
+    "humidity": 50,
+    "aqiValues": {
+      "no2AQI": 45,
+      "so2AQI": 43,
+      "pm25AQI": 342,
+      "pm10AQI": 34,
+      "o3AQI": 342,
+      "coAQI": 342,
+      "aqi": 76
+    }
   }
 ]

@@ -2,18 +2,27 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema(
     {
-        deviceID: 'string',
-        utcDateTime: 'string',
-        no2: 'number',
-        so2: 'number',
-        pm2: 'number',
-        pm10: 'number',
-        o3: 'number',
-        co: 'number',
-        sound: 'number',
-        temperature: 'number',
-        uv: 'number',
-        humidity: 'number'
+        deviceID: String,
+        utcDateTime: String,
+        no2: Number,
+        so2: Number,
+        pm25: Number,
+        pm10: Number,
+        o3: Number,
+        co: Number,
+        sound: Number,
+        temperature: Number,
+        uv: Number,
+        humidity: Number,
+        aqiValues: {
+            no2AQI: Number,
+            so2AQI: Number,
+            pm25AQI: Number,
+            pm10AQI: Number,
+            o3AQI: Number,
+            coAQI: Number,
+            aqi: Number
+        }
     },
     {
         collection: 'records'

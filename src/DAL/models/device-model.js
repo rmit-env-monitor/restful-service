@@ -2,11 +2,11 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema(
     {
-        lat: 'number',
-        lng: 'number',
-        name: 'string',
-        city: 'string',
-        district: 'string'
+        lat: Number,
+        lng: Number,
+        name: String,
+        city: String,
+        district: String
     },
     {
         collection: 'devices'

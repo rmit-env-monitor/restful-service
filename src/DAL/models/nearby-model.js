@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema(
     {
-        city: 'string',
-        districts: 'string',
-        nearby: 'array'
+        city: String,
+        districts: String,
+        nearby: Array
     },
     {
         collection: 'nearby'
