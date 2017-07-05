@@ -7,7 +7,7 @@
   },
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "DEBUG=* node app.js",
     "cobuild": "cd src/aqi-calculation/co-calculation && node-gyp configure && node-gyp build",
     "no2build": "cd src/aqi-calculation/no2-calculation && node-gyp configure && node-gyp build",
     "o3build": "cd src/aqi-calculation/o3-calculation && node-gyp configure && node-gyp build",

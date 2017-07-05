@@ -16,7 +16,7 @@ class DeviceService {
                 if (err) {
                     reject({ message: err })
                 } else if (reply) {
-                    this.getDeviceLastestRecord(JSON.parse(reply))
+                    this.getDeviceLastestRecord(JSON.parse(reply), district)
                         .then(deviceList => {
                             resolve(deviceList)
                         })
@@ -28,7 +28,7 @@ class DeviceService {
                         .then(devices => {
                             redis.set(deviceListKey, JSON.stringify(devices))
                             redis.expire(deviceListKey, constants.ONE_DAY_EXPIRE)
-                            this.getDeviceLastestRecord(devices)
+                            this.getDeviceLastestRecord(devices, district)
                                 .then(deviceList => {
                                     resolve(deviceList)
                                 })
@@ -92,14 +92,20 @@ class DeviceService {
 
     //--- Private functions ---//
 
-    getDeviceLastestRecord(devices) {
+    getDeviceLastestRecord(devices, district) {
         const deviceListLength = devices.length
         const promises = []
         return new Promise((resolve, reject) => {
             for (let index = 0; index < deviceListLength; index++) {
                 let promise = recordService.getLatestDeviceRecord(devices[index]._id)
                     .then(record => {
-                        '_doc' in devices[index] ? devices[index]._doc.record = record : devices[index].record = record
+                        if ('_doc' in devices[index]) {
+                            devices[index]._doc.district = district
+                            devices[index]._doc.record = record
+                        } else {
+                            devices[index].record = record
+                            '_doc' in devices[index] ?  : devices[index].district = district
+                        }
                     })
                     .catch(err => {
                         reject({ message: err })
