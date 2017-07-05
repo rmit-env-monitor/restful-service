@@ -104,7 +104,7 @@ class DeviceService {
                             devices[index]._doc.record = record
                         } else {
                             devices[index].record = record
-                            '_doc' in devices[index] ?  : devices[index].district = district
+                            devices[index].district = district
                         }
                     })
                     .catch(err => {
