@@ -9,7 +9,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 
 const tokenCheck = require('./src/middlewares/token-check-middleware')
-global.redis = require('./src/DAL/redis-connection')
+// global.redis = require('./src/DAL/redis-connection')
 
 /** Establish connection to MongoDB */
 require('./src/DAL/mongodb-connection')
