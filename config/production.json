@@ -14,11 +14,6 @@
     },
     "redis": {
         "port": 6379,
-        "ip": "env-monitor.0a537l.ng.0001.apse1.cache.amazonaws.com"
-    },
-    "pubnub": {
-        "sub-key": "sub-c-f87fc608-4341-11e7-86e2-02ee2ddab7fe",
-        "pub-key": "pub-c-e590d950-b736-40bf-9ed1-a6a7029160a8",
-        "secret-key": "sec-c-NDgzMjRiZjktYWJkYy00MGNkLWJmN2UtZjRhMzlkZTk4YmQw"
+        "ip": "ec2-54-169-8-171.ap-southeast-1.compute.amazonaws.com"
     }
 }
