@@ -10,5 +10,8 @@ module.exports = {
         NO_RAW_DATA: '-_id -deviceID -no2 -so2 -pm25 -pm10 -o3 -co',
         NO_ID_DEVICEID_DATE: '-_id -deviceID -utcDateTime',
         NEARBY: '-_id nearby'
+    },
+    BACKGROUND_JOB: {
+        STATION_RANKING: 'STATION_RANKING'
     }
 }
