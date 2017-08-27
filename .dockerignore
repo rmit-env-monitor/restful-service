@@ -1,0 +1,9 @@
+node_modules
+logs
+.eslintrc.json
+dump.rdb
+process.json
+README.md
+.vscode
+.git
+.DS_Store
