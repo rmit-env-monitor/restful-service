@@ -14,3 +14,9 @@ RUN npm install node-gyp -g
 
 # Bundle source code
 COPY . /var/app
+RUN npm run cobuild
+RUN npm run no2build
+RUN npm run o3build
+RUN npm run pm10build
+RUN npm run pm25build
+RUN npm run so2build;
