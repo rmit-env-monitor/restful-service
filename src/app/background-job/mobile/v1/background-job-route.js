@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const backgroundJobService = require('../../../services/mobile/v1/background-job-service')
+const backgroundJobService = require('./services/mobile/v1/background-job-service')
 
 module.exports = app => {
     router.get('/station-ranking', (req, res) => {

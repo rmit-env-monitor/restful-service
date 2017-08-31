@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const nearbyService = require('../../services/web/nearby-service')
+const nearbyService = require('./nearby-service')
 
 module.exports = app => {
     /**

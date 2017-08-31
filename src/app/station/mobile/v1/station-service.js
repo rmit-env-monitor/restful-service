@@ -2,9 +2,9 @@ const Promise = global.Promise
 const redis = global.redis
 const q = require('q')
 
-const deviceRepo = require('../../../DAL/repositories/device-repository')
+const deviceRepo = require('../../../../DAL/repositories/device-repository')
 const recordService = require('./record-service')
-const constants = require('../../../utilities/constants')
+const constants = require('../../../../utilities/constants')
 
 class DeviceService {
     getDevicesByCityDistrict(city, district) {

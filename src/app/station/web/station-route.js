@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const deviceService = require('../../services/web/device-service')
+const deviceService = require('./station-service')
 
 module.exports = app => {
     /**

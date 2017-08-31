@@ -15,10 +15,11 @@ global.redis = require('./src/DAL/redis-connection')
 require('./src/DAL/mongodb-connection')
 
 /** Routing */
-const arduino = require('./src/routes/arduino')
-const sharedRoutes = require('./src/routes/shared')
-const mobileRoutes = require('./src/routes/mobile')
-const webRoutes = require('./src/routes/web')
+const userRoutes = require('./src/app/user')
+const stationRoutes = require('./src/app/station')
+const recordRoutes = require('./src/app/record')
+const nearbyRoutes = require('./src/app/nearby')
+const backgroundJobRoutes = require('./src/app/background-job')
 
 app.set('port', (process.env.PORT || config.get('express.port')))
 app.options('*', cors())
@@ -35,10 +36,11 @@ app.use((req, res, next) => {
 })
 
 /** Register APIs */
-arduino(app, socket)
-sharedRoutes(app)
-mobileRoutes(app, socket)
-webRoutes(app, socket)
+userRoutes(app)
+stationRoutes(app)
+recordRoutes(app)
+nearbyRoutes(app)
+backgroundJobRoutes(app)
 
 /** catch 404 and forward to error handler */
 app.use((req, res, next) => {

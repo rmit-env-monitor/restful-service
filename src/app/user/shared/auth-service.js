@@ -1,9 +1,9 @@
 const Promise = global.Promise
-const authRepo = require('../../DAL/repositories/auth-repository')
-const passwordHashing = require('../../auth/local/password-hashing')
-const passwordChecking = require('../../auth/local/password-checking')
-const tokenGenerator = require('../../auth/local/token-generator')
-const constants = require('../../utilities/constants')
+const authRepo = require('../../../DAL/repositories/auth-repository')
+const passwordHashing = require('./auth/local/password-hashing')
+const passwordChecking = require('./auth/local/password-checking')
+const tokenGenerator = require('./auth/local/token-generator')
+const constants = require('../../../utilities/constants')
 
 class AuthService {
     registerUser(body) {

@@ -1,8 +1,8 @@
 const Promise = global.Promise
 const redis = global.redis
 
-const nearbyRepo = require('../../DAL/repositories/nearby-repository')
-const constants = require('../../utilities/constants')
+const nearbyRepo = require('../../../../DAL/repositories/nearby-repository')
+const constants = require('../../../../utilities/constants')
 
 class NearbyService {
     getNearbyRecord(city, district) {

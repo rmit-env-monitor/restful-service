@@ -1,5 +1,5 @@
 const redis = global.redis
-const constants = require('../../utilities/constants')
+const constants = require('../../../../utilities/constants')
 
 class BackgroundJobService {
     getStationRanking(city, deviceId) {

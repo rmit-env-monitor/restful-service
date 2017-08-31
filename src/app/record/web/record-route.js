@@ -1,8 +1,8 @@
 const router = require('express').Router()
 
-const recordService = require('../../services/web/record-service')
+const recordService = require('./record-service')
 
-module.exports = (app, socket) => {
+module.exports = app => {
     /**
      * GET: /api/web/records/:device
      */
