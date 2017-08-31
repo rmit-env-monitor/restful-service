@@ -3,7 +3,7 @@ const redis = global.redis
 const q = require('q')
 
 const deviceRepo = require('../../../DAL/repositories/device-repository')
-const recordService = require('./record-service')
+const recordService = require('../../record/web/record-service')
 const constants = require('../../../utilities/constants')
 
 class DeviceService {

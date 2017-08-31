@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const authService = require('./services/shared/auth-service')
+const authService = require('./auth-service')
 
 module.exports = app => {
     /**
