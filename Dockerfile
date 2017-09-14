@@ -1,4 +1,4 @@
-FROM node:boron
+FROM node:latest
 
 # Create directory
 RUN mkdir -p /var/app
