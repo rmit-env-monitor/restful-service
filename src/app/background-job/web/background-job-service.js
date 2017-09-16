@@ -23,7 +23,18 @@ class BackgroundJobService {
                     const stations = value.stations.slice(0, 10)
 
                     // Include request station in list
-                    if (requestStationIndex > 10) stations.push(value.stations[requestStationIndex])
+                    if (requestStationIndex > 9) {
+                        stations.push(
+                            {
+                                aqi: '--',
+                                district: '--',
+                                id: '--',
+                                idx: '--',
+                                name: '----'
+                            },
+                            value.stations[requestStationIndex]
+                        )
+                    }
                     resolve(stations)
                 }
             })
