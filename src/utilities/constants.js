@@ -13,5 +13,6 @@ module.exports = {
     },
     BACKGROUND_JOB: {
         STATION_RANKING: 'STATION_RANKING'
-    }
+    },
+    ERROR_500_MESSAGE: "System's encountered error"
 }

@@ -1,6 +1,7 @@
 const router = require('express').Router()
 
 const authService = require('./auth-service')
+const error500Message = require('../../../utilities/constants').ERROR_500_MESSAGE
 
 module.exports = app => {
     /**
@@ -11,13 +12,15 @@ module.exports = app => {
      * Success: return {username, token}
      * Error: return {message}
      */
-    router.post('/users', (req, res) => {
+    router.post('/users', (req, res, next) => {
+        req._routeWhitelists.body = ['username', 'email']
         authService.registerUser(req.body)
             .then(value => {
                 res.status(200).json(value)
             })
             .catch(err => {
-                res.status(200).json(err)
+                res.status(500).json(error500Message)
+                next(new Error(err.message))
             })
     })
 
@@ -29,13 +32,15 @@ module.exports = app => {
      * Success: return {username, token}
      * Error: return {message}
      */
-    router.post('/auth', (req, res) => {
+    router.post('/auth', (req, res, next) => {
+        req._routeWhitelists.body = ['username', 'email']
         authService.login(req.body)
             .then(value => {
                 res.status(200).json(value)
             })
             .catch(err => {
-                res.status(200).json(err)
+                res.status(500).json(error500Message)
+                next(new Error(err.message))
             })
     })
 

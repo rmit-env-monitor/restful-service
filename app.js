@@ -1,5 +1,4 @@
 const app = require('express')()
-const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const config = require('config')
@@ -7,6 +6,8 @@ const server = require('http').Server(app)
 const socket = require('socket.io')(server)
 const cors = require('cors')
 const helmet = require('helmet')
+const winston = require('winston')
+const expressWinston = require('express-winston')
 
 const tokenCheck = require('./src/middlewares/token-check-middleware')
 global.redis = require('./src/DAL/redis-connection')
@@ -24,7 +25,6 @@ const backgroundJobRoutes = require('./src/app/background-job')
 app.set('port', (process.env.PORT || config.get('express.port')))
 app.options('*', cors())
 app.use('*/api', tokenCheck)
-app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
@@ -34,6 +34,28 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
     next()
 })
+/** Request log */
+app.use(expressWinston.logger({
+    transports: [
+        new winston.transports.Console({
+            json: true,
+            colorize: true,
+            timestamp: true
+        })
+    ],
+    meta: true,
+    expressFormat: true,
+    colorize: true,
+    statusLevels: {
+        200: 'info',
+        302: 'info',
+        403: 'warn',
+        404: 'warn',
+        500: 'error',
+        502: 'error',
+        504: 'error'
+    }
+}))
 
 /** Register APIs */
 userRoutes(app)
@@ -42,20 +64,19 @@ recordRoutes(app)
 nearbyRoutes(app)
 backgroundJobRoutes(app)
 
-/** catch 404 and forward to error handler */
-app.use((req, res, next) => {
-    var err = new Error('Not Found')
-    err.status = 404
-    next(err)
-})
-
-/** production error handler, no stacktraces leaked to user */
-app.use((err, req, res, next) => {
-    res.status(err.status || 500).json({
-        'message': err.message,
-    })
-})
+/** Error log */
+app.use(expressWinston.errorLogger({
+    transports: [
+        new winston.transports.Console({
+            json: true,
+            colorize: true,
+            timestamp: true
+        })
+    ],
+    dumpExceptions: true,
+    showStack: true
+}))
 
 server.listen(app.get('port'), '0.0.0.0', () => {
-    console.log('Listening on port:', app.get('port'))
+    if (process.env.NODE_ENV !== 'production') console.log('Listening on port:', app.get('port'))
 })
