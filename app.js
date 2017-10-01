@@ -35,27 +35,51 @@ app.use((req, res, next) => {
     next()
 })
 /** Request log */
-app.use(expressWinston.logger({
-    transports: [
-        new winston.transports.Console({
-            json: true,
-            colorize: true,
-            timestamp: true
-        })
-    ],
-    meta: true,
-    expressFormat: true,
-    colorize: true,
-    statusLevels: {
-        200: 'info',
-        302: 'info',
-        403: 'warn',
-        404: 'warn',
-        500: 'error',
-        502: 'error',
-        504: 'error'
-    }
-}))
+process.env.NODE_ENV === 'production' ?
+    app.use(expressWinston.logger({
+        transports: [
+            new winston.transports.File({
+                json: true,
+                colorize: true,
+                timestamp: true,
+                filename: 'logs/request.log'
+            })
+        ],
+        meta: true,
+        expressFormat: true,
+        colorize: true,
+        statusLevels: {
+            200: 'info',
+            302: 'info',
+            403: 'warn',
+            404: 'warn',
+            500: 'error',
+            502: 'error',
+            504: 'error'
+        }
+    }))
+    :
+    app.use(expressWinston.logger({
+        transports: [
+            new winston.transports.Console({
+                json: true,
+                colorize: true,
+                timestamp: true
+            })
+        ],
+        meta: true,
+        expressFormat: true,
+        colorize: true,
+        statusLevels: {
+            200: 'info',
+            302: 'info',
+            403: 'warn',
+            404: 'warn',
+            500: 'error',
+            502: 'error',
+            504: 'error'
+        }
+    }))
 
 /** Register APIs */
 userRoutes(app)
@@ -65,17 +89,32 @@ nearbyRoutes(app)
 backgroundJobRoutes(app)
 
 /** Error log */
-app.use(expressWinston.errorLogger({
-    transports: [
-        new winston.transports.Console({
-            json: true,
-            colorize: true,
-            timestamp: true
-        })
-    ],
-    dumpExceptions: true,
-    showStack: true
-}))
+process.env.NODE_ENV === 'production' ?
+    app.use(expressWinston.errorLogger({
+        transports: [
+            new winston.transports.File({
+                json: true,
+                colorize: true,
+                timestamp: true,
+                filename: 'logs/error.log'
+            })
+        ],
+        dumpExceptions: true,
+        showStack: true
+    }))
+    :
+    app.use(expressWinston.errorLogger({
+        transports: [
+            new winston.transports.Console({
+                json: true,
+                colorize: true,
+                timestamp: true,
+                filename: 'logs/error.log'
+            })
+        ],
+        dumpExceptions: true,
+        showStack: true
+    }))
 
 server.listen(app.get('port'), '0.0.0.0', () => {
     if (process.env.NODE_ENV !== 'production') console.log('Listening on port:', app.get('port'))
