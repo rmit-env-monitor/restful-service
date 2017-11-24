@@ -1,6 +1,11 @@
 module.exports = {
     ERROR_MESSAGE: 'Invalid username/password. Try again',
-    MQTT_SENSORS_DATA: 'sensors-data',
+    MQTT_SENSORS_DATA: {
+        pm25: 'pm25',
+        pm10: 'pm10',
+        temp: 'temp',
+        hum: 'hum'
+    },
     CITY_LIST: 'city_list',
     ONE_DAY_EXPIRE: 86400,
     ONE_WEEK_EXPIRE: 604800,

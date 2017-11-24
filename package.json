@@ -8,6 +8,7 @@
   "main": "app.js",
   "scripts": {
     "start": "DEBUG=* node app.js",
+    "subcribe": "nodemon src/routes/arduino/mqtt-subcriber.js",
     "cobuild": "cd src/aqi-calculation/co-calculation && node-gyp configure && node-gyp build",
     "no2build": "cd src/aqi-calculation/no2-calculation && node-gyp configure && node-gyp build",
     "o3build": "cd src/aqi-calculation/o3-calculation && node-gyp configure && node-gyp build",
