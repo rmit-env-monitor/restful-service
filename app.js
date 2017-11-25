@@ -8,6 +8,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 const winston = require('winston')
 const expressWinston = require('express-winston')
+const expressGraphQL = require('express-graphql');
 
 const tokenCheck = require('./src/middlewares/token-check-middleware')
 global.redis = require('./src/DAL/redis-connection')
@@ -19,8 +20,8 @@ require('./src/DAL/mongodb-connection')
 const userRoutes = require('./src/app/user')
 const stationRoutes = require('./src/app/station')
 const recordRoutes = require('./src/app/record')
-const nearbyRoutes = require('./src/app/nearby')
 const backgroundJobRoutes = require('./src/app/background-job')
+const schema = require('./src/app/graphql-schema')
 
 app.set('port', (process.env.PORT || EXPRESS_PORT))
 app.options('*', cors())
@@ -85,8 +86,16 @@ process.env.NODE_ENV === 'production' ?
 userRoutes(app)
 stationRoutes(app)
 recordRoutes(app)
-nearbyRoutes(app)
 backgroundJobRoutes(app)
+app.use('/graphql', expressGraphQL({
+  schema,
+  formatError: error => ({
+    message: error.message,
+    locations: error.locations,
+    stack: error.stack,
+    path: error.path
+  })
+}))
 
 /** Error log */
 process.env.NODE_ENV === 'production' ?
