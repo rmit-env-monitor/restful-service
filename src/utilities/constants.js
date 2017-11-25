@@ -10,7 +10,7 @@ module.exports = {
     ONE_DAY_EXPIRE: 86400,
     ONE_WEEK_EXPIRE: 604800,
     MONGOOSE_QUERY: {
-        NO_ID: '-_id -__v',
+        NO_ID: '-__v',
         ID_NAME_LAT_LNG: '_id name lat lng',
         NO_RAW_DATA: '-_id -deviceID -no2 -so2 -pm25 -pm10 -o3 -co',
         NO_ID_DEVICEID_DATE: '-_id -deviceID -utcDateTime',
