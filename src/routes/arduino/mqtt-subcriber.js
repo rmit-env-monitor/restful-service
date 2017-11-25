@@ -1,11 +1,11 @@
-const config = require('config')
+const { MQTT_BROKER_ADDRESS } = require('../../../env')
 const mqtt = require('mqtt')
 const pm25Calculation = require('../../aqi-calculation/pm25-calculation/build/Release/pm25Calculation.node')
 
 const constants = require('../../utilities/constants')
 const arduinoService = require('../../services/arduino/service')
 
-const client = mqtt.connect(config.get('mqtt.address'))
+const client = mqtt.connect(MQTT_BROKER_ADDRESS)
 
 client.on('connect', () => {
     console.log("Subcriber connected")

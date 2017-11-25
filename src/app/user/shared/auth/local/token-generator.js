@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken')
-const config = require('config')
+const { TOKEN_SECRET } = require('../../../../../../env')
 
 module.exports = value => {
-    return jwt.sign(
-        value,
-        config.get('auth.secret'),
-        { expiresIn: '1y' }
-    )
+  return jwt.sign(
+    value,
+    TOKEN_SECRET,
+    { expiresIn: '1y' }
+  )
 }
