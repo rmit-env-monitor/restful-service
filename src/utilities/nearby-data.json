@@ -1,0 +1,149 @@
+[
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Quận 7",
+    "nearby": [
+      "Quận 2",
+      "Quận 4",
+      "Quận 8",
+      "Nhà Bè"
+    ]
+  },
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Quận 1",
+    "nearby": [
+      "Bình Thạnh",
+      "Phú Nhuận",
+      "Quận 3",
+      "Quận 10",
+      "Quận 5",
+      "Quận 4",
+      "Quận 2"
+    ]
+  },
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Tân Bình",
+    "nearby": [
+      "Gò Vấp",
+      "Tân Phú",
+      "Quận 11",
+      "Quận 10",
+      "Quận 3",
+      "Phú Nhuận",
+      "Quận 12"
+    ]
+  },
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Quận 10",
+    "nearby": [
+      "Tân Bình",
+      "Quận 3",
+      "Quận 11",
+      "Quận 5"
+    ]
+  },
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Quận 11",
+    "nearby": [
+      "Tân Bình",
+      "Tân Phú",
+      "Quận 10",
+      "Quận 5",
+      "Quận 6"
+    ]
+  },
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Quận 3",
+    "nearby": [
+      "Tân Bình",
+      "Phú Nhuận",
+      "Quận 10",
+      "Quận 1",
+      "Quận 5"
+    ]
+  },
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Phú Nhuận",
+    "nearby": [
+      "Gò Vấp",
+      "Tân Bình",
+      "Quận 1",
+      "Quận 3",
+      "Bình Thạnh"
+    ]
+  },
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Gò Vấp",
+    "nearby": [
+      "Phú Nhuận",
+      "Tân Bình",
+      "Quận 12",
+      "Bình Thạnh"
+    ]
+  },
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Bình Thạnh",
+    "nearby": [
+      "Phú Nhuận",
+      "Thủ Đức",
+      "Gò Vấp",
+      "Quận 1",
+      "Quận 2"
+    ]
+  },
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Tân Phú",
+    "nearby": [
+      "Bình Tân",
+      "Tân Bình",
+      "Quận 12",
+      "Quận 6",
+      "Quận 11"
+    ]
+  },
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Quận 6",
+    "nearby": [
+      "Bình Tân",
+      "Tân Phú",
+      "Quận 8",
+      "Quận 5",
+      "Quận 11"
+    ]
+  },
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Quận 5",
+    "nearby": [
+      "Quận 7",
+      "Quận 4",
+      "Quận 1",
+      "Quận 10",
+      "Quận 8",
+      "Quận 6",
+      "Quận 11"
+    ]
+  },
+  {
+    "city": "Hồ Chí Minh",
+    "district": "Quận 2",
+    "nearby": [
+      "Quận 9",
+      "Thủ Đức",
+      "Bình Thạnh",
+      "Quận 1",
+      "Quận 4",
+      "Quận 7"
+    ]
+  }
+]

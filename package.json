@@ -25,6 +25,7 @@
     "express-winston": "^2.4.0",
     "graphql": "^0.11.7",
     "helmet": "^3.6.1",
+    "json-query": "^2.2.2",
     "jsonwebtoken": "^7.3.0",
     "mongoose": "^4.9.3",
     "mqtt": "^2.8.0",
