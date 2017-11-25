@@ -1,10 +1,7 @@
 {
-  "name": "not-alone-rest",
+  "name": "em-rest",
   "version": "1.0.0",
   "description": "RESTful web service",
-  "engines": {
-    "node": "6.9.5"
-  },
   "main": "app.js",
   "scripts": {
     "start": "DEBUG=* node app.js",
@@ -25,7 +22,9 @@
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.3",
     "express": "^4.15.2",
+    "express-graphql": "^0.6.11",
     "express-winston": "^2.4.0",
+    "graphql": "^0.11.7",
     "helmet": "^3.6.1",
     "jsonwebtoken": "^7.3.0",
     "mongoose": "^4.9.3",
