@@ -1,14 +1,10 @@
 const graphql = require('graphql')
-const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLInt, GraphQLNonNull, GraphQLList } = graphql
+const { GraphQLSchema } = graphql
+
 const rootQuery = require('./queries')
-
-const mutation = new GraphQLObjectType({
-  name: 'Mutation',
-  fields: {
-
-  }
-})
+const mutation = require('./mutations')
 
 module.exports = new GraphQLSchema({
-  query: rootQuery
+  query: rootQuery,
+  mutation
 })
