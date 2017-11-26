@@ -1,7 +1,7 @@
 const graphql = require('graphql')
 const { GraphQLObjectType, GraphQLString, GraphQLID } = graphql
 
-const { getRecordsByDevice } = require('../../record/record-query')
+const { getRecords, getLatestRecord } = require('../../record/record-query')
 
 module.exports = new GraphQLObjectType({
   name: 'Station',
@@ -11,6 +11,7 @@ module.exports = new GraphQLObjectType({
     lng: { type: GraphQLString },
     city: { type: GraphQLString },
     district: { type: GraphQLString },
-    records: getRecordsByDevice
+    records: getRecords,
+    latestRecord: getLatestRecord
   })
 })

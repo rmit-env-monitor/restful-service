@@ -4,19 +4,16 @@ const recordService = require('./record-service')
 const Record = require('../graphql-schema/models/record-type')
 
 module.exports = {
-  getRecordsByDevice: {
+  getRecords: {
     type: new GraphQLList(Record),
-    resolve(parent, args) {
+    resolve(parent) {
       return recordService.getRecordsByDevice(parent._id)
     }
   },
-  getLatestDeviceRecord: {
+  getLatestRecord: {
     type: Record,
-    args: {
-      deviceID: { type: new GraphQLNonNull(GraphQLID) }
-    },
-    resolve(parent, { deviceID }) {
-      return recordService.getLatestDeviceRecord(deviceID)
+    resolve(parent) {
+      return recordService.getLatestDeviceRecord(parent._id)
     }
   }
 }
