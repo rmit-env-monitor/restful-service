@@ -16,11 +16,6 @@ global.redis = require('./src/DAL/redis-connection')
 /** Establish connection to MongoDB */
 require('./src/DAL/mongodb-connection')
 
-/** Routing */
-const userRoutes = require('./src/app/user')
-const stationRoutes = require('./src/app/station')
-const recordRoutes = require('./src/app/record')
-const backgroundJobRoutes = require('./src/app/background-job')
 const schema = require('./src/app/graphql-schema')
 
 app.set('port', (process.env.PORT || EXPRESS_PORT))
@@ -82,11 +77,6 @@ process.env.NODE_ENV === 'production' ?
     }
   }))
 
-/** Register APIs */
-userRoutes(app)
-stationRoutes(app)
-recordRoutes(app)
-backgroundJobRoutes(app)
 app.use('/graphql', expressGraphQL({
   schema,
   formatError: error => ({
