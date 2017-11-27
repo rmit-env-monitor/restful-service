@@ -17,6 +17,7 @@ global.redis = require('./src/DAL/redis-connection')
 require('./src/DAL/mongodb-connection')
 
 const schema = require('./src/app/graphql-schema')
+const userRoute = require('./src/app/user/shared/auth-route')
 
 app.set('port', (process.env.PORT || EXPRESS_PORT))
 app.options('*', cors())
@@ -76,6 +77,8 @@ process.env.NODE_ENV === 'production' ?
       504: 'error'
     }
   }))
+
+userRoute(app)
 
 app.use('/graphql', expressGraphQL({
   schema,
