@@ -2,9 +2,6 @@
   "name": "not-alone-rest",
   "version": "1.0.0",
   "description": "RESTful web service",
-  "engines": {
-    "node": "6.9.5"
-  },
   "main": "app.js",
   "scripts": {
     "start": "DEBUG=* node app.js",
@@ -21,12 +18,12 @@
   "dependencies": {
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
-    "config": "^1.25.1",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.3",
     "express": "^4.15.2",
     "express-winston": "^2.4.0",
     "helmet": "^3.6.1",
+    "json-query": "^2.2.2",
     "jsonwebtoken": "^7.3.0",
     "mongoose": "^4.9.3",
     "mqtt": "^2.8.0",

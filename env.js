@@ -1,0 +1,11 @@
+const env = process.env
+
+module.exports = {
+  EXPRESS_PORT: env.EXPRESS_PORT,
+  ORIGIN: env.ORIGIN,
+  MONGO_URL: env.MONGO_URL,
+  TOKEN_SECRET: env.TOKEN_SECRET,
+  MQTT_BROKER_ADDRESS: env.MQTT_BROKER_ADDRESS,
+  REDIS_PORT: env.REDIS_PORT,
+  REDIS_IP: env.REDIS_IP
+}
