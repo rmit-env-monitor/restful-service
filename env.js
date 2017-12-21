@@ -1,4 +1,4 @@
-const env = process.env
+const env = process.env;
 
 module.exports = {
   EXPRESS_PORT: env.EXPRESS_PORT,
@@ -7,5 +7,7 @@ module.exports = {
   TOKEN_SECRET: env.TOKEN_SECRET,
   MQTT_BROKER_ADDRESS: env.MQTT_BROKER_ADDRESS,
   REDIS_PORT: env.REDIS_PORT,
-  REDIS_IP: env.REDIS_IP
-}
+  REDIS_IP: env.REDIS_IP,
+  GOOGLE_CLIENT_ID: env.GOOGLE_CLIENT_ID,
+  GOOGLE_CLIENT_SECRET: env.GOOGLE_CLIENT_SECRET
+};
