@@ -69,11 +69,7 @@ class AuthService {
       await authRepo.registerAccount(newUser);
     }
 
-    return {
-      accessToken: value.accessToken,
-      refreshToken: value.refreshToken,
-      expiresAt: value.expiresAt
-    };
+    return { message: "success" };
   }
 }
 
