@@ -69,7 +69,7 @@ class AuthService {
       await authRepo.registerAccount(newUser);
     }
 
-    return { message: "success" };
+    return { username: value.username };
   }
 }
 
