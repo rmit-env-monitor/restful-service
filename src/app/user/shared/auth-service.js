@@ -22,8 +22,11 @@ class AuthService {
       body.authType = AUTH_TYPE.PASSWORD;
 
       /** Add new user to DB */
-      await authRepo.registerAccount(body);
-      value.username = body.username;
+      const newUser = await authRepo.registerAccount(body);
+      value.id = newUser.id;
+      value.email = newUser.email;
+      value.username = newUser.username;
+      value.authType = newUser.authType;
       value.token = tokenGenerator(value);
       return value;
     }
@@ -47,9 +50,7 @@ class AuthService {
         user.password
       );
       if (passwordCheckResult) {
-        value.username = user.username;
-        value.token = tokenGenerator(value);
-        return value;
+        return this._getReturnDataToClient(user);
       } else {
         value.message = ERROR_MESSAGE;
         return value;
@@ -58,18 +59,27 @@ class AuthService {
   }
 
   async googleAuth(value) {
-    const user = await authRepo.authenticate({ email: value.email.trim() });
+    let user = await authRepo.authenticate({ email: value.email.trim() });
     if (!user) {
       const newUser = {
         username: value.username,
         email: value.email,
-        password: "",
         authType: AUTH_TYPE.GOOGLE
       };
-      await authRepo.registerAccount(newUser);
+      user = await authRepo.registerAccount(newUser);
     }
 
-    return { username: value.username };
+    return this._getReturnDataToClient(user);
+  }
+
+  _getReturnDataToClient(user) {
+    const value = {};
+    value.id = user.id;
+    value.email = user.email;
+    value.username = user.username;
+    value.authType = user.authType;
+    value.token = tokenGenerator(value);
+    return value;
   }
 }
 

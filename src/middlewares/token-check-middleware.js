@@ -19,8 +19,21 @@ module.exports = (req, res, next) => {
           msg.message = err.message;
           res.status(403).json(msg);
         } else {
-          req.decoded = decoded;
-          next();
+          authRepo
+            .authenticate({
+              _id: decoded.id,
+              username: decoded.username,
+              email: decoded.email
+            })
+            .then(user => {
+              if (user) {
+                req.decoded = decoded;
+                next();
+              } else {
+                msg.message = "Unauthorized";
+                res.status(403).json(msg);
+              }
+            });
         }
       });
     } else {

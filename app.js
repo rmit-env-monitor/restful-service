@@ -34,7 +34,6 @@ app.use((req, res, next) => {
   next();
 });
 app.use("*/api", tokenCheck);
-app.use("*/api", googleTokenCheck);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
