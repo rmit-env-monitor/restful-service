@@ -9,7 +9,6 @@ const winston = require("winston");
 const expressWinston = require("express-winston");
 
 const tokenCheck = require("./src/middlewares/token-check-middleware");
-const googleTokenCheck = require("./src/middlewares/google-token-check-middleware");
 global.redis = require("./src/DAL/redis-connection");
 const { EXPRESS_PORT, ORIGIN } = require("./env");
 
