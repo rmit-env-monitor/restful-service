@@ -37,7 +37,8 @@ class AuthService {
 
     /** Check if username exists */
     const user = await authRepo.authenticate({
-      username: body.username.trim()
+      username: body.username.trim(),
+      authType: AUTH_TYPE.PASSWORD
     });
     if (!user) {
       /** Username not found */
@@ -58,13 +59,13 @@ class AuthService {
     }
   }
 
-  async googleAuth(value) {
+  async validateOAuthData(value) {
     let user = await authRepo.authenticate({ email: value.email.trim() });
     if (!user) {
       const newUser = {
         username: value.username,
         email: value.email,
-        authType: AUTH_TYPE.GOOGLE
+        authType: value.type
       };
       user = await authRepo.registerAccount(newUser);
     }

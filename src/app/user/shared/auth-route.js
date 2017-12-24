@@ -48,10 +48,10 @@ module.exports = app => {
       });
   });
 
-  router.post("/auth/google", (req, res, next) => {
-    req._routeWhitelists.body = ["username", "email"];
+  router.post("/auth/oauth", (req, res, next) => {
+    req._routeWhitelists.body = ["username", "email", "type"];
     authService
-      .googleAuth(req.body)
+      .validateOAuthData(req.body)
       .then(value => {
         res.status(200).json(value);
       })
