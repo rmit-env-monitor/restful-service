@@ -1,6 +1,7 @@
 const env = process.env;
 
 module.exports = {
+  NODE_ENV: env.NODE_ENV,
   EXPRESS_PORT: env.EXPRESS_PORT,
   ORIGIN: env.ORIGIN,
   MONGO_URL: env.MONGO_URL,
