@@ -46,6 +46,7 @@ const stationRoutes = require("./src/app/station");
 const recordRoutes = require("./src/app/record");
 const nearbyRoutes = require("./src/app/nearby");
 const backgroundJobRoutes = require("./src/app/background-job");
+const historyRoutes = require("./src/app/history");
 
 app.set("port", process.env.PORT || EXPRESS_PORT);
 app.options("*", cors());
@@ -88,6 +89,7 @@ stationRoutes(app);
 recordRoutes(app);
 nearbyRoutes(app);
 backgroundJobRoutes(app);
+historyRoutes(app);
 
 /** Error log */
 app.use(
